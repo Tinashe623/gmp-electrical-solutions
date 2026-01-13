@@ -76,7 +76,7 @@ const Navbar = () => {
               fontSize={{ base: 'xl', md: '2xl' }}
               fontWeight={'800'}
               letterSpacing={'tight'}
-              bgGradient="linear(to-r, brand.500, accent.500)"
+              bgGradient="linear(to-r, brand.500, secondary.500)"
               bgClip="text"
               display={{ base: 'none', sm: 'inline-block' }}
             >
@@ -87,6 +87,7 @@ const Navbar = () => {
           <Stack direction={'row'} spacing={8} display={{ base: 'none', md: 'flex' }}>
             <Navlink to="/" isActive={location.pathname === '/'}>Home</Navlink>
             <Navlink to="/services" isActive={location.pathname === '/services'}>Services</Navlink>
+            <Navlink to="/packages" isActive={location.pathname === '/packages'}>Packages</Navlink>
             <Navlink to="/about" isActive={location.pathname === '/about'}>About Us</Navlink>
             <Navlink to="/contact" isActive={location.pathname === '/contact'}>Contact</Navlink>
           </Stack>
@@ -149,17 +150,23 @@ const Navbar = () => {
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.3s', opacity: 0 }}
                  >
-                   <Navlink to="/about" onClick={onClose} isActive={location.pathname === '/about'}>About Us</Navlink>
+                   <Navlink to="/packages" onClick={onClose} isActive={location.pathname === '/packages'}>Packages</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.4s', opacity: 0 }}
                  >
-                   <Navlink to="/contact" onClick={onClose} isActive={location.pathname === '/contact'}>Contact</Navlink>
+                   <Navlink to="/about" onClick={onClose} isActive={location.pathname === '/about'}>About Us</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.5s', opacity: 0 }}
+                 >
+                   <Navlink to="/contact" onClick={onClose} isActive={location.pathname === '/contact'}>Contact</Navlink>
+                 </Box>
+                 <Box 
+                   animation={'fadeInUp 0.3s ease-out forwards'}
+                   style={{ animationDelay: '0.6s', opacity: 0 }}
                  >
                    <Button 
                     as={RouterLink} 

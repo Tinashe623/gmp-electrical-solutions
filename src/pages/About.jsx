@@ -98,10 +98,10 @@ const About = () => {
             <Box>
                 <Heading mb={6}>Our Mission</Heading>
                 <Text fontSize={'lg'} color={'gray.600'} mb={4}>
-                    At G.M.P Electrical, we believe that sustainable energy should be accessible, reliable, and expertly installed. Our mission is to transition homes and businesses to cleaner power sources while ensuring the highest standards of electrical safety and efficiency.
+                    At G.M.P Electrical, we believe reliable power should be simple, safe, and sustainable. Our mission is to help homeowners and businesses move to cleaner energy while keeping every installation neat, compliant, and built to last.
                 </Text>
                  <Text fontSize={'lg'} color={'gray.600'}>
-                    Founded in 2026, we have grown from a small team of passionate electricians to a leading provider of solar and electrical solutions in the region. We combine cutting-edge technology with traditional craftsmanship to deliver results that last.
+                    With over a decade of hands-on experience, our team has grown from a small local crew to a trusted solar and electrical partner for clients across Mutare and surrounding areas. We combine modern technology with solid workmanship and honest advice.
                 </Text>
             </Box>
         </SimpleGrid>

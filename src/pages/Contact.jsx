@@ -69,19 +69,19 @@ const Contact = () => {
           <Stack spacing={8}>
             <Heading>Get In Touch</Heading>
             <Text color={'gray.600'} fontSize={'lg'}>
-                Have a question or ready to start your solar project? Fill out the form or give us a call. We look forward to hearing from you.
+                Have a question, need an electrician, or ready to start your solar project? Fill out the form or give us a call and we will respond as soon as possible.
             </Text>
             
             <Stack spacing={6} mt={4}>
-                <ContactInfo icon={FaPhone} title="Phone" text="+1 (555) 123-4567" />
+                <ContactInfo icon={FaPhone} title="Phone" text="+263 779 941 427" />
                  <ContactInfo icon={FaEnvelope} title="Email" text="info@gmp-electrical.com" />
-                  <ContactInfo icon={FaMapMarkerAlt} title="Address" text="123 Solar Street, Sunshine City, SC 90001" />
+                  <ContactInfo icon={FaMapMarkerAlt} title="Address" text="St James Zongoro, 313 Mutare" />
             </Stack>
             
              <Box mt={8}>
                 <iframe
                     title="map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1655734407519!5m2!1sen!2sus"
+                    src="https://www.google.com/maps?q=Mutare,+Zimbabwe&output=embed"
                     width="100%"
                     height="300"
                     style={{ border: 0, borderRadius: '1rem' }}

@@ -1,56 +1,41 @@
 import React from 'react';
-import { Box, Container, Stack, Text, SimpleGrid, useColorModeValue, Icon } from '@chakra-ui/react';
+import { Box, Container, Stack, Text, SimpleGrid, useColorModeValue, Icon, Flex } from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
+import SectionDivider from './SectionDivider';
 
 const Footer = () => {
   return (
     <Box
-      bgGradient={'linear(to-br, gray.900, gray.800, gray.900)'}
-      color={useColorModeValue('gray.50', 'gray.200')}
+      bg={'brand.900'} // Deep Navy Blue
+      color={'gray.300'}
       position={'relative'}
-      overflow={'hidden'}
+      mt={0}
     >
-      {/* Subtle gradient overlay */}
-      <Box
-        position={'absolute'}
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        bgGradient={'linear(to-br, transparent, brand.900, transparent)'}
-        opacity={0.1}
-        pointerEvents={'none'}
-      />
-      
-      <Container as={Stack} maxW={'container.xl'} py={10} position={'relative'} zIndex={1}>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-          <Stack align={'flex-start'}>
-            <Text fontWeight={'bold'} fontSize={'lg'} mb={2} color={'white'}>Company</Text>
-            <Link to="/about">About Us</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/#">Careers</Link>
-          </Stack>
+      {/* Top Divider - Soft modern curve transitioning from previous section to Footer */}
+      <Box position="absolute" top={'-80px'} left={0} right={0} height={'80px'} overflow="hidden" pointerEvents="none">
+         <SectionDivider variant="modern" position="bottom" color="#060d15" height="80px" />
+      </Box>
 
-          <Stack align={'flex-start'}>
-            <Text fontWeight={'bold'} fontSize={'lg'} mb={2} color={'white'}>Services</Text>
-            <Link to="/services#solar">Solar Installation</Link>
-            <Link to="/services#wiring">Electrical Wiring</Link>
-            <Link to="/services#tubing">Tubing Solutions</Link>
-            <Link to="/services#maintenance">Maintenance</Link>
-          </Stack>
-
-          <Stack align={'flex-start'}>
-            <Text fontWeight={'bold'} fontSize={'lg'} mb={2} color={'white'}>Contact</Text>
-            <Text>St James Zongoro</Text>
-            <Text>313 Mutare</Text>
-            <Text color={'brand.300'} _hover={{ color: 'brand.200' }} cursor={'pointer'}>info@gmp-electrical.com</Text>
-            <Text>+263 779 941 427</Text>
-          </Stack>
-
-          <Stack align={'flex-start'}>
-            <Text fontWeight={'bold'} fontSize={'lg'} mb={2} color={'white'}>Follow Us</Text>
+      <Container as={Stack} maxW={'container.xl'} py={16} position={'relative'} zIndex={1}>
+        <SimpleGrid columns={{ base: 1, md: 4 }} spacing={12}>
+          
+          {/* Brand Column */}
+          <Stack spacing={6}>
+            <Box>
+              <Text
+                fontSize={'2xl'}
+                fontWeight={'800'}
+                letterSpacing={'tight'}
+                bgGradient="linear(to-r, white, secondary.400)"
+                bgClip="text"
+              >
+                G.M.P<Text as="span" color="secondary.500"> Electrical</Text>
+              </Text>
+              <Text fontSize={'sm'} mt={2} color={'gray.400'}>
+                Modern solar, backup power, and electrical solutions for homes and businesses in Mutare and surrounding areas.
+              </Text>
+            </Box>
             <Stack direction={'row'} spacing={4}>
                 <SocialButton label={'Facebook'} href={'#'}><FaFacebook /></SocialButton>
                 <SocialButton label={'Twitter'} href={'#'}><FaTwitter /></SocialButton>
@@ -58,14 +43,66 @@ const Footer = () => {
                 <SocialButton label={'LinkedIn'} href={'#'}><FaLinkedin /></SocialButton>
             </Stack>
           </Stack>
+
+          {/* Quick Links */}
+          <Stack align={'flex-start'}>
+            <Text fontWeight={'700'} fontSize={'lg'} mb={2} color={'secondary.500'}>Quick Links</Text>
+            <Link to="/">Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/packages">Solar Packages</Link>
+            <Link to="/contact">Get a Quote</Link>
+          </Stack>
+
+          {/* Services */}
+          <Stack align={'flex-start'}>
+            <Text fontWeight={'700'} fontSize={'lg'} mb={2} color={'secondary.500'}>Our Services</Text>
+            <Link to="/services">Solar Installation</Link>
+            <Link to="/services">Electrical Wiring</Link>
+            <Link to="/services">Tubing Solutions</Link>
+            <Link to="/services">Maintenance & Repair</Link>
+            <Link to="/services">System Upgrades</Link>
+          </Stack>
+
+          {/* Contact Info */}
+          <Stack align={'flex-start'}>
+            <Text fontWeight={'700'} fontSize={'lg'} mb={2} color={'secondary.500'}>Contact Us</Text>
+            <Text fontWeight="600" color="white">Head Office</Text>
+            <Text>St James Zongoro</Text>
+            <Text mb={2}>313 Mutare</Text>
+            
+            <Text fontWeight="600" color="white" mt={2}>Get in Touch</Text>
+            <Text 
+                as="a" 
+                href="mailto:info@gmp-electrical.com"
+                color={'secondary.400'} 
+                _hover={{ color: 'secondary.300' }}
+            >
+                info@gmp-electrical.com
+            </Text>
+            <Text 
+                as="a" 
+                href="tel:+263779941427"
+                color={'secondary.400'} 
+                _hover={{ color: 'secondary.300' }}
+            >
+                +263 779 941 427
+            </Text>
+          </Stack>
         </SimpleGrid>
       </Container>
       
-      <Box py={4} borderTopWidth={1} borderColor="whiteAlpha.200" position={'relative'} zIndex={1}>
+      <Box py={6} borderTopWidth={1} borderColor="whiteAlpha.100" bg={'blackAlpha.300'}>
           <Container maxW={'container.xl'}>
-            <Text textAlign={'center'} fontSize={'sm'}>
-              © {new Date().getFullYear()} G.M.P Electrical. All rights reserved.
-            </Text>
+            <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
+                <Text fontSize={'sm'} color={'gray.500'}>
+                © {new Date().getFullYear()} G.M.P Electrical. All rights reserved.
+                </Text>
+                <Stack direction={'row'} spacing={6} mt={{ base: 4, md: 0 }}>
+                    <Link to="#">Privacy Policy</Link>
+                    <Link to="#">Terms of Service</Link>
+                </Stack>
+            </Flex>
           </Container>
       </Box>
     </Box>
@@ -76,10 +113,11 @@ const Link = ({ children, to }) => (
     <Text 
       as={RouterLink} 
       to={to} 
-      color={'gray.300'}
+      color={'gray.400'}
       transition={'all 0.3s ease'}
+      fontSize={'sm'}
       _hover={{ 
-        color: 'brand.300',
+        color: 'secondary.400',
         textDecoration: 'none',
         transform: 'translateX(4px)',
       }}
@@ -100,13 +138,13 @@ const SocialButton = ({ children, label, href }) => {
       h={10}
       rounded={'full'}
       bg={'whiteAlpha.100'}
-      color={'gray.300'}
+      color={'gray.400'}
       transition={'all 0.3s ease'}
       _hover={{
-        bg: 'brand.500',
+        bg: 'secondary.500',
         color: 'white',
         transform: 'translateY(-4px)',
-        boxShadow: '0 8px 20px rgba(0, 102, 255, 0.4)',
+        boxShadow: '0 8px 20px rgba(255, 140, 0, 0.3)',
       }}
     >
       <Icon as={() => children} w={5} h={5} />

@@ -3,6 +3,7 @@ import { Box, SimpleGrid, Icon, Text, Stack, Flex, Heading, Container, Button, u
 import { FaSolarPanel, FaBolt, FaTools } from 'react-icons/fa';
 import Hero from '../components/Hero';
 import { Link as RouterLink } from 'react-router-dom';
+import SectionDivider from '../components/SectionDivider';
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -52,7 +53,10 @@ const Feature = ({ title, text, icon }) => {
 const Home = () => {
   return (
     <Box id="main-content">
-      <Hero />
+      <Box position="relative">
+        <Hero />
+        <SectionDivider variant="modern" position="bottom" color={useColorModeValue('#f7fafc', 'gray.800')} height="72px" />
+      </Box>
       
       <Container maxW={'container.xl'} py={20}>
          <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'} mb={16}>
@@ -62,45 +66,47 @@ const Home = () => {
               bgGradient={'linear(to-r, brand.500, accent.500)'}
               bgClip={'text'}
             >
-              Comprehensive Electrical Solutions
+              Modern Solar & Electrical Solutions
             </Heading>
             <Text color={'gray.600'} fontSize={'xl'} lineHeight={'tall'}>
-              We provide end-to-end electrical services from harnessing the sun's power to ensuring your home's wiring is safe and efficient.
+              From rooftop solar and backup power to safe wiring and neat conduit work, we design, install, and maintain systems that keep your home or business powered every day.
             </Text>
           </Stack>
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           <Feature
             icon={<Icon as={FaSolarPanel} w={10} h={10} />}
-            title={'Solar Installation'}
+            title={'Solar Systems & Backup Power'}
             text={
-              'Reduce your carbon footprint and save on energy bills with our state-of-the-art solar panel systems tailored to your roof.'
+              'Custom-designed solar and inverter systems with batteries, so you enjoy lower bills and reliable power during grid outages.'
             }
           />
           <Feature
             icon={<Icon as={FaTools} w={10} h={10} />}
-            title={'Professional Tubing'}
+            title={'Conduit & Tubing'}
             text={
-              'Expert conduit and tubing installation to protect your electrical systems and ensure long-lasting safety and compliance.'
+              'Professional conduit and trunking installation that protects your cables, keeps your walls tidy, and meets local safety standards.'
             }
           />
           <Feature
              icon={<Icon as={FaBolt} w={10} h={10} />}
-            title={'Electrical Wiring'}
+            title={'Electrical Installations'}
             text={
-              'Complete home wiring services, from new construction to upgrades and repairs. Safety and quality are our top priorities.'
+              'New builds, renovations, fault finding, and repairs handled by experienced, licensed electricians with a focus on safety and quality.'
             }
           />
         </SimpleGrid>
       </Container>
 
       <Box
-        bgGradient={'linear(to-br, brand.500, accent.500, secondary.500)'}
+        bgGradient={'linear(to-br, brand.500, secondary.500, brand.600)'}
         position={'relative'}
         overflow={'hidden'}
         py={24}
-        my={16}
+        mt={20}
+        mb={0}
       >
+        <SectionDivider variant="modern" position="top" color={useColorModeValue('#f7fafc', 'gray.800')} height="72px" />
         {/* Pattern Overlay */}
         <Box
           position={'absolute'}

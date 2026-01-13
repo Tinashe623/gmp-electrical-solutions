@@ -29,17 +29,17 @@ body {
 
 /* Glassmorphism Utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Gradient Text */
@@ -87,6 +87,20 @@ body {
   50% {
     box-shadow: 0 0 30px rgba(0, 102, 255, 0.6);
   }
+}
+
+/* Subtle divider motion */
+@keyframes dividerWave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.section-divider-svg {
+  animation: dividerWave 14s ease-in-out infinite;
 }
 
 .animate-float {

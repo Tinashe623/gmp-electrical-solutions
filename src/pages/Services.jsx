@@ -72,7 +72,7 @@ const Services = () => {
   return (
     <Box>
       <Box 
-        bgGradient={'linear(to-br, brand.50, accent.50, secondary.50)'} 
+        bgGradient={'linear(to-br, brand.50, secondary.50, brand.100)'} 
         py={20} 
         textAlign={'center'}
         position={'relative'}
@@ -92,7 +92,7 @@ const Services = () => {
             size="2xl" 
             mb={4}
             fontWeight={'800'}
-            bgGradient={'linear(to-r, brand.600, accent.600)'}
+            bgGradient={'linear(to-r, brand.600, secondary.600)'}
             bgClip={'text'}
           >
             Our Expert Services
@@ -145,6 +145,21 @@ const Services = () => {
           ]}
           imageSrc="/images/solar-images/solar4.jpg"
         />
+
+        <Box bg={useColorModeValue('gray.50', 'gray.900')}>
+          <ServiceSection
+            title="Solar Maintenance & Monitoring"
+            description="Keep your system performing at its best. We offer scheduled maintenance, cleaning, and performance checks so you get the savings you expect from your solar investment."
+            features={[
+              'Annual system health checks',
+              'Panel cleaning and visual inspections',
+              'Inverter and battery performance checks',
+              'Fault finding and repairs',
+              'Monitoring setup and support',
+            ]}
+            imageSrc="/images/solar-images/solar1.jpg"
+          />
+        </Box>
       </Stack>
     </Box>
   );
