@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Container, Stack, Text, SimpleGrid, useColorModeValue, Icon, Flex } from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
-import SectionDivider from './SectionDivider';
 
 const Footer = () => {
   return (
@@ -14,7 +13,6 @@ const Footer = () => {
     >
       {/* Top Divider - Soft modern curve transitioning from previous section to Footer */}
       <Box position="absolute" top={'-80px'} left={0} right={0} height={'80px'} overflow="hidden" pointerEvents="none">
-         <SectionDivider variant="modern" position="bottom" color="#060d15" height="80px" />
       </Box>
 
       <Container as={Stack} maxW={'container.xl'} py={16} position={'relative'} zIndex={1}>

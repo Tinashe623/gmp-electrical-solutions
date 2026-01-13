@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { IconButton, Box } from '@chakra-ui/react';
 import { FaArrowUp } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 const ScrollToTop = () => {
+  const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(false);
+
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
 
   // Show button when page is scrolled down
   useEffect(() => {

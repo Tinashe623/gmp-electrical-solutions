@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, SimpleGrid, Icon, Text, Stack, Flex, Heading, Container, Button, useColorModeValue } from '@chakra-ui/react';
-import { FaSolarPanel, FaBolt, FaTools } from 'react-icons/fa';
+import { FaSolarPanel, FaBolt, FaTools, FaShieldAlt, FaCertificate, FaMapMarkerAlt } from 'react-icons/fa';
 import Hero from '../components/Hero';
 import { Link as RouterLink } from 'react-router-dom';
-import SectionDivider from '../components/SectionDivider';
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -55,7 +54,6 @@ const Home = () => {
     <Box id="main-content">
       <Box position="relative">
         <Hero />
-        <SectionDivider variant="modern" position="bottom" color={useColorModeValue('#f7fafc', 'gray.800')} height="72px" />
       </Box>
       
       <Container maxW={'container.xl'} py={20}>
@@ -98,6 +96,220 @@ const Home = () => {
         </SimpleGrid>
       </Container>
 
+      {/* Trust badges */}
+      <Box py={10} bg={useColorModeValue('white', 'gray.900')}>
+        <Container maxW={'container.xl'}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+            <Flex align="center" gap={3}>
+              <Box
+                as={FaShieldAlt}
+                w={8}
+                h={8}
+                color="brand.500"
+              />
+              <Box>
+                <Text fontWeight="700" fontSize="sm" color="gray.800">
+                  Licensed & Insured
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  Compliant installations and safe workmanship on every job.
+                </Text>
+              </Box>
+            </Flex>
+            <Flex align="center" gap={3}>
+              <Box
+                as={FaCertificate}
+                w={8}
+                h={8}
+                color="secondary.500"
+              />
+              <Box>
+                <Text fontWeight="700" fontSize="sm" color="gray.800">
+                  Certified Solar Installers
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  Trained to design and commission reliable solar systems.
+                </Text>
+              </Box>
+            </Flex>
+            <Flex align="center" gap={3}>
+              <Box
+                as={FaMapMarkerAlt}
+                w={8}
+                h={8}
+                color="accent.500"
+              />
+              <Box>
+                <Text fontWeight="700" fontSize="sm" color="gray.800">
+                  Local to Mutare
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  Fast support for homes and businesses in Mutare & surrounds.
+                </Text>
+              </Box>
+            </Flex>
+          </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* Recent installations */}
+      <Box py={16} bg={useColorModeValue('gray.50', 'gray.900')}>
+        <Container maxW={'container.xl'}>
+          <Stack spacing={6} mb={10} textAlign={{ base: 'left', md: 'center' }}>
+            <Text
+              fontSize={'sm'}
+              fontWeight={'600'}
+              textTransform={'uppercase'}
+              letterSpacing={'0.18em'}
+              color={'brand.500'}
+            >
+              Recent installations
+            </Text>
+            <Heading
+              fontSize={{ base: '2xl', md: '3xl' }}
+              fontWeight={'800'}
+              color={'gray.800'}
+            >
+              Projects we&apos;ve completed for clients like you
+            </Heading>
+            <Text fontSize={'md'} color={'gray.600'} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
+              A snapshot of some of the systems we&apos;ve recently installed in and around Mutare.
+            </Text>
+          </Stack>
+
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+            <Stack
+              role="group"
+              bg={useColorModeValue('white', 'gray.800')}
+              rounded={'2xl'}
+              overflow={'hidden'}
+              borderWidth={'1px'}
+              borderColor={useColorModeValue('gray.100', 'gray.700')}
+              boxShadow={'md'}
+              transition="all 0.4s ease"
+              transform="translateY(0)"
+              _hover={{
+                transform: 'translateY(-8px)',
+                boxShadow: 'lg',
+              }}
+            >
+              <Box h={{ base: '220px', md: '260px' }} overflow={'hidden'}>
+                <Box
+                  as="img"
+                  src="/images/solar-images/solar2.jpg"
+                  alt="4kW rooftop solar system in Mutare"
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                  objectPosition="center top"
+                  loading="lazy"
+                  transform="scale(1.02)"
+                  transition="transform 0.6s ease"
+                  _groupHover={{ transform: 'scale(1.08)' }}
+                />
+              </Box>
+              <Box p={6}>
+                <Text fontWeight="700" fontSize="md" color="gray.800" mb={1}>
+                  3kva Home System
+                </Text>
+                <Text fontSize="sm" color="gray.500" mb={2}>
+                  Mutasa, Zimbabwe
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  Roof-mounted solar with battery backup to keep lights, fridge, Wi‑Fi and TV running through outages.
+                </Text>
+              </Box>
+            </Stack>
+
+            <Stack
+              role="group"
+              bg={useColorModeValue('white', 'gray.800')}
+              rounded={'2xl'}
+              overflow={'hidden'}
+              borderWidth={'1px'}
+              borderColor={useColorModeValue('gray.100', 'gray.700')}
+              boxShadow={'md'}
+              transition="all 0.4s ease"
+              transform="translateY(0)"
+              _hover={{
+                transform: 'translateY(-8px)',
+                boxShadow: 'lg',
+              }}
+            >
+              <Box h={{ base: '220px', md: '260px' }} overflow={'hidden'}>
+                <Box
+                  as="img"
+                  src="/images/solar-images/solar3.jpg"
+                  alt="5kW office backup system in Mutare CBD"
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                  objectPosition="center center"
+                  loading="lazy"
+                  transform="scale(1.02)"
+                  transition="transform 0.6s ease"
+                  _groupHover={{ transform: 'scale(1.08)' }}
+                />
+              </Box>
+              <Box p={6}>
+                <Text fontWeight="700" fontSize="md" color="gray.800" mb={1}>
+                  5kW Office Backup
+                </Text>
+                <Text fontSize="sm" color="gray.500" mb={2}>
+                  Mutare CBD
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  Hybrid inverter and lithium batteries powering computers, POS systems and lighting for a small office.
+                </Text>
+              </Box>
+            </Stack>
+
+            <Stack
+              role="group"
+              bg={useColorModeValue('white', 'gray.800')}
+              rounded={'2xl'}
+              overflow={'hidden'}
+              borderWidth={'1px'}
+              borderColor={useColorModeValue('gray.100', 'gray.700')}
+              boxShadow={'md'}
+              transition="all 0.4s ease"
+              transform="translateY(0)"
+              _hover={{
+                transform: 'translateY(-8px)',
+                boxShadow: 'lg',
+              }}
+            >
+              <Box h={{ base: '220px', md: '260px' }} overflow={'hidden'}>
+                <Box
+                  as="img"
+                  src="/images/solar-images/solar4.jpg"
+                  alt="8kW system for lodge outside Mutare"
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                  objectPosition="center center"
+                  loading="lazy"
+                  transform="scale(1.02)"
+                  transition="transform 0.6s ease"
+                  _groupHover={{ transform: 'scale(1.08)' }}
+                />
+              </Box>
+              <Box p={6}>
+                <Text fontWeight="700" fontSize="md" color="gray.800" mb={1}>
+                  5.5kva Home Installation
+                </Text>
+                <Text fontSize="sm" color="gray.500" mb={2}>
+                  Chipinge, Zimbabwe
+                </Text>
+                <Text fontSize="sm" color="gray.600">
+                  Solar + battery setup supplying guest rooms, kitchen equipment and water pumps with clean power.
+                </Text>
+              </Box>
+            </Stack>
+          </SimpleGrid>
+        </Container>
+      </Box>
+
       <Box
         bgGradient={'linear(to-br, brand.500, secondary.500, brand.600)'}
         position={'relative'}
@@ -106,7 +318,6 @@ const Home = () => {
         mt={20}
         mb={0}
       >
-        <SectionDivider variant="modern" position="top" color={useColorModeValue('#f7fafc', 'gray.800')} height="72px" />
         {/* Pattern Overlay */}
         <Box
           position={'absolute'}

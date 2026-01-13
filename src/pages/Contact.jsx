@@ -1,4 +1,5 @@
 import React from 'react';
+import emailjs from '@emailjs/browser';
 import {
   Box,
   Container,
@@ -51,13 +52,41 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        toast({
-            title: "Message Sent.",
-            description: "We've received your request and will get back to you shortly.",
-            status: "success",
-            duration: 5000,
-            isClosable: true,
-        });
+
+        // ----------------------------------------------------------------------------------
+        // TODO: Replace with your own EmailJS credentials.
+        // You can get these from your EmailJS account dashboard: https://dashboard.emailjs.com/
+        //
+        // 1. SERVICE_ID: The ID of the email service you want to use (e.g., 'service_abc123').
+        // 2. TEMPLATE_ID: The ID of the email template you've created (e.g., 'template_xyz456').
+        // 3. USER_ID: Your public key (e.g., 'user_1234567890').
+        // ----------------------------------------------------------------------------------
+        const serviceID = 'YOUR_SERVICE_ID';
+        const templateID = 'YOUR_TEMPLATE_ID';
+        const userID = 'YOUR_USER_ID';
+
+        emailjs.sendForm(serviceID, templateID, e.target, userID)
+            .then((result) => {
+                console.log(result.text);
+                toast({
+                    title: "Message Sent.",
+                    description: "We've received your request and will get back to you shortly.",
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            }, (error) => {
+                console.log(error.text);
+                toast({
+                    title: "An error occurred.",
+                    description: "Please try again later.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            });
+
+        e.target.reset();
     }
 
   return (
@@ -113,6 +142,7 @@ const Contact = () => {
                         <FormLabel fontWeight={'600'}>Name</FormLabel>
                         <Input 
                           type="text" 
+                          name="from_name"
                           placeholder="Your Name"
                           focusBorderColor="brand.500"
                           _focus={{
@@ -124,6 +154,7 @@ const Contact = () => {
                         <FormLabel fontWeight={'600'}>Email</FormLabel>
                         <Input 
                           type="email" 
+                          name="from_email"
                           placeholder="your@email.com"
                           focusBorderColor="brand.500"
                           _focus={{
@@ -135,7 +166,8 @@ const Contact = () => {
                         <FormLabel fontWeight={'600'}>Phone</FormLabel>
                         <Input 
                           type="tel" 
-                          placeholder="(555) 123-4567"
+                          name="from_phone"
+                          placeholder="e.g. +263 77 994 1427"
                           focusBorderColor="brand.500"
                           _focus={{
                             boxShadow: '0 0 0 3px rgba(0, 102, 255, 0.1)',
@@ -145,7 +177,8 @@ const Contact = () => {
                      <FormControl id="service">
                         <FormLabel fontWeight={'600'}>Interested Service</FormLabel>
                         <Input 
-                          type="text" 
+                          type="text"
+                          name="from_service"
                           placeholder="e.g. Solar Installation"
                           focusBorderColor="brand.500"
                           _focus={{
@@ -156,6 +189,7 @@ const Contact = () => {
                     <FormControl id="message" isRequired>
                         <FormLabel fontWeight={'600'}>Message</FormLabel>
                         <Textarea 
+                          name="message"
                           placeholder="Tell us about your project..." 
                           rows={6}
                           focusBorderColor="brand.500"

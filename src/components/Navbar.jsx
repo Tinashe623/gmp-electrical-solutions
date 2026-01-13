@@ -138,31 +138,31 @@ const Navbar = () => {
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.1s', opacity: 0 }}
                  >
-                   <Navlink to="/" onClick={onClose} isActive={location.pathname === '/'}>Home</Navlink>
+                   <Navlink to="/" onClick={onClose} isActive={location.pathname === '/'} fontSize="xl" py={2} display="block">Home</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.2s', opacity: 0 }}
                  >
-                   <Navlink to="/services" onClick={onClose} isActive={location.pathname === '/services'}>Services</Navlink>
+                   <Navlink to="/services" onClick={onClose} isActive={location.pathname === '/services'} fontSize="xl" py={2} display="block">Services</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.3s', opacity: 0 }}
                  >
-                   <Navlink to="/packages" onClick={onClose} isActive={location.pathname === '/packages'}>Packages</Navlink>
+                   <Navlink to="/packages" onClick={onClose} isActive={location.pathname === '/packages'} fontSize="xl" py={2} display="block">Packages</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.4s', opacity: 0 }}
                  >
-                   <Navlink to="/about" onClick={onClose} isActive={location.pathname === '/about'}>About Us</Navlink>
+                   <Navlink to="/about" onClick={onClose} isActive={location.pathname === '/about'} fontSize="xl" py={2} display="block">About Us</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
                    style={{ animationDelay: '0.5s', opacity: 0 }}
                  >
-                   <Navlink to="/contact" onClick={onClose} isActive={location.pathname === '/contact'}>Contact</Navlink>
+                   <Navlink to="/contact" onClick={onClose} isActive={location.pathname === '/contact'} fontSize="xl" py={2} display="block">Contact</Navlink>
                  </Box>
                  <Box 
                    animation={'fadeInUp 0.3s ease-out forwards'}
@@ -178,6 +178,8 @@ const Navbar = () => {
                     _hover={{
                       bgGradient: "linear(to-r, brand.600, brand.700)",
                     }}
+                    size="lg"
+                    fontSize="lg"
                   >
                     Get a Quote
                 </Button>

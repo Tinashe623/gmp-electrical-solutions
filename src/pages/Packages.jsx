@@ -19,7 +19,7 @@ import { CheckCircleIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaSolarPanel } from 'react-icons/fa';
 
-const PackageCard = ({ name, capacity, price, features, powers, isPopular, image }) => {
+const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopular, image }) => {
   return (
     <Stack
       bg={useColorModeValue('white', 'gray.800')}
@@ -108,12 +108,18 @@ const PackageCard = ({ name, capacity, price, features, powers, isPopular, image
           {capacity} Solar System
         </Text>
 
-        <Box>
-          <Text fontSize={'4xl'} fontWeight={'800'} color={'gray.800'}>
+        {idealFor && (
+          <Text fontSize={'sm'} color={'gray.500'}>
+            Best for: {idealFor}
+          </Text>
+        )}
+
+        <Box mt={2}>
+          <Text fontSize={'2xl'} fontWeight={'800'} color={'gray.800'}>
             {price}
           </Text>
-          <Text fontSize={'sm'} color={'gray.500'}>
-            Complete installation included
+          <Text fontSize={'xs'} color={'gray.500'} textTransform={'uppercase'} letterSpacing={'0.08em'}>
+            Turnkey supply & installation
           </Text>
         </Box>
 
@@ -182,6 +188,7 @@ const Packages = () => {
       name: 'Starter',
       capacity: '1kW',
       price: 'From $700',
+      idealFor: 'Small apartments, backup for essentials',
       features: [
         '1 x 450W solar panel',
         '1kW inverter',
@@ -197,16 +204,21 @@ const Packages = () => {
         'Small energy-efficient fridge',
       ],
       isPopular: false,
-      image: '/images/solar-images/solar5.jpg',
+      image: '/images/solar-images/1kva.webp',
     },
     {
       name: 'Home',
-      capacity: '2kW',
-      price: 'From $900',
+      capacity: '3kW',
+      price: 'From $1,950',
+      idealFor: 'Typical family homes (2–3 bedrooms)',
       features: [
-        '2 x 405W solar panels',
-        '2kW hybrid inverter',
+        '4 x 450W solar panels',
+        '3kW hybrid inverter',
         'Protection kit',
+        'Mounting Kit',
+        'Accessories',
+        'Automatic Voltage Switcher',
+        'Labour | Installation',
         'Perfect for average homes',
         '12-months warranty',
       ],
@@ -215,15 +227,18 @@ const Packages = () => {
         '2 televisions',
         'Medium fridge/freezer',
         'Wi‑Fi router and computers',
-        'Iron or microwave (not at the same time as kettle)',
+        'Borehole Pump',
+        'Washing Machine',
+'Printers and other appliances'
       ],
       isPopular: false,
-      image: '/images/solar-images/solar2.jpg',
+      image: '/images/solar-images/3kva.webp',
     },
     {
       name: 'Premium',
       capacity: '5kW',
-      price: 'From $10,500',
+      price: 'From $2,500',
+      idealFor: 'Larger homes with higher usage',
       features: [
         '20 x 250W solar panels',
         '5kW hybrid inverter',
@@ -240,19 +255,22 @@ const Packages = () => {
         'Small water pump or borehole system',
       ],
       isPopular: true,
-      image: '/images/solar-images/solar4.jpg',
+      image: '/images/solar-images/5kva.webp',
     },
     {
       name: 'Business',
-      capacity: '8kW',
-      price: 'From $15,500',
+      capacity: '5.5kVA',
+      price: 'From $2,700',
+      idealFor: 'Small offices, shops and clinics',
       features: [
         '32 x 250W solar panels',
-        '8kW hybrid inverter',
-        'Commercial monitoring',
-        'Battery storage included',
-        'Reduces bills by 70-90%',
-        '25-year warranty',
+        '5.5kW hybrid inverter',
+        '1 x 24v 200ah Lithium iron Battery',
+         'Mounting kits',
+         'Accessories',
+         'Automatic ChangeOver Switch',
+         'Labour | Installation',
+          '12 months warranty',
       ],
       powers: [
         'Small office or shop (computers, POS, lighting)',
@@ -262,29 +280,37 @@ const Packages = () => {
         'Light workshop tools (e.g. small drills, grinders)',
       ],
       isPopular: false,
-      image: '/images/solar-images/solar3.jpg',
+      image: '/images/solar-images/8kva.webp',
     },
     {
       name: 'Enterprise',
       capacity: '10kW',
-      price: 'From $19,500',
+      price: 'From $4,500',
+      idealFor: 'Lodges, guest houses and larger businesses',
       features: [
-        '40 x 250W solar panels',
+        '12 x 500W solar panels',
         '10kW hybrid inverter',
         'Enterprise monitoring',
-        'Large battery storage',
-        'Maximum energy independence',
-        '25-year warranty',
+        '2 x 48v 100ah Lithium Ion Battery',
+'Mounting kit',
+        'Protection kit',
+        'Adjustable Voltage Switcher',
+'Labour | Installation',
+        '5 years warranty'
       ],
       powers: [
-        'Larger home, lodge or small factory',
-        'Multiple fridges, freezers and cold rooms (managed)',
-        'Air conditioning units (selected rooms)',
-        'Water pumps and pressure systems',
-        'Combination of office and household loads',
+        'Lights',
+        'TV',
+'Decoder',
+        'Microwave',
+        'Wi‑Fi',
+        'Charging',
+        'Borehole pump',
+        'Gate motor, etc.'
+
       ],
       isPopular: false,
-      image: '/images/solar-images/solar7.jpg',
+      image: '/images/solar-images/10kva.webp',
     },
   ];
 

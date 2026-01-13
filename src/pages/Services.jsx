@@ -114,7 +114,7 @@ const Services = () => {
             'Grid-tied and off-grid solutions',
             '25-year performance warranty',
           ]}
-          imageSrc="/images/solar-images/solar2.jpg"
+          imageSrc="/images/solar-images/solar-roof.jpg"
         />
         
         <Box bg={useColorModeValue('gray.50', 'gray.800')}>
@@ -129,7 +129,7 @@ const Services = () => {
                 'Industrial and residential applications',
                 'Code-compliant wire protection',
               ]}
-              imageSrc="/images/solar-images/solar3.jpg"
+              imageSrc="/images/solar-images/wiring1.jpg"
             />
         </Box>
 
@@ -143,7 +143,7 @@ const Services = () => {
             'Smart home wiring',
             'Electrical safety inspections',
           ]}
-          imageSrc="/images/solar-images/solar4.jpg"
+          imageSrc="/images/solar-images/wiring2.jpg"
         />
 
         <Box bg={useColorModeValue('gray.50', 'gray.900')}>
@@ -157,8 +157,70 @@ const Services = () => {
               'Fault finding and repairs',
               'Monitoring setup and support',
             ]}
-            imageSrc="/images/solar-images/solar1.jpg"
+            imageSrc="/images/solar-images/wiring3.jpg"
           />
+        </Box>
+
+        {/* Wiring detail gallery */}
+        <Box py={16} bg={useColorModeValue('white', 'gray.900')}>
+          <Container maxW={'container.xl'}>
+            <Stack spacing={6} mb={8} textAlign={{ base: 'left', md: 'center' }}>
+              <Heading fontSize={{ base: '2xl', md: '3xl' }}>
+                Neat, safe wiring on every project
+              </Heading>
+              <Text fontSize={'md'} color={'gray.600'} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
+                A quick look at how we route cables, mount equipment, and finish off our electrical work.
+              </Text>
+            </Stack>
+
+            <SimpleGrid columns={{ base: 2, md: 5 }} spacing={4}>
+              <Image
+                src="/images/solar-images/solar-roof.jpg"
+                alt="Solar panels neatly mounted on a roof"
+                rounded="xl"
+                objectFit="cover"
+                h={{ base: '120px', md: '140px' }}
+                w="100%"
+                loading="lazy"
+              />
+              <Image
+                src="/images/solar-images/wiring1.jpg"
+                alt="Conduit and wiring neatly installed"
+                rounded="xl"
+                objectFit="cover"
+                h={{ base: '120px', md: '140px' }}
+                w="100%"
+                loading="lazy"
+              />
+              <Image
+                src="/images/solar-images/wiring2.jpg"
+                alt="Distribution board wiring detail"
+                rounded="xl"
+                objectFit="cover"
+                h={{ base: '120px', md: '140px' }}
+                w="100%"
+                loading="lazy"
+              />
+              <Image
+                src="/images/solar-images/wiring3.jpg"
+                alt="Electrical trunking and cable management"
+                rounded="xl"
+                objectFit="cover"
+                h={{ base: '120px', md: '140px' }}
+                w="100%"
+                loading="lazy"
+              />
+              <Image
+                src="/images/solar-images/wiring 4.jpg"
+                alt="Finished inverter and battery installation"
+                rounded="xl"
+                objectFit="cover"
+                h={{ base: '120px', md: '140px' }}
+                w="100%"
+                loading="lazy"
+              />
+            </SimpleGrid>
+          </Container>
         </Box>
       </Stack>
     </Box>
