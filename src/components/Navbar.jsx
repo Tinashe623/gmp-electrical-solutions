@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, Button, Stack, useColorModeValue, useBreakpointValue, Container, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Image } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, Stack, useColorModeValue, useBreakpointValue, Container, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Image, useMediaQuery } from '@chakra-ui/react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import logo from '../assets/images/logo.png';
@@ -9,6 +9,7 @@ const Navbar = () => {
     const btnRef = React.useRef();
     const location = useLocation();
     const [scrolled, setScrolled] = React.useState(false);
+    const [isMobileLandscape] = useMediaQuery('(max-height: 500px)');
 
     React.useEffect(() => {
       const handleScroll = () => {
@@ -56,7 +57,7 @@ const Navbar = () => {
         Skip to content
       </Box>
       <Container maxW="container.xl">
-        <Flex minH={{ base: '70px', md: '90px' }} align={'center'} justify={'space-between'}>
+        <Flex minH={isMobileLandscape ? '60px' : { base: '70px', md: '90px' }} align={'center'} justify={'space-between'}>
           <Flex 
             as={RouterLink}
             to="/"
@@ -68,7 +69,7 @@ const Navbar = () => {
             <Image 
               src={logo} 
               alt="G.M.P Electrical Logo" 
-              h={{ base: '48px', md: '100px' }}
+              h={isMobileLandscape ? '40px' : { base: '48px', md: '100px' }}
               w={'auto'}
               objectFit={'contain'}
               transition={'all 0.3s ease'}
@@ -90,7 +91,7 @@ const Navbar = () => {
             </Text>
           </Flex>
 
-          <Stack direction={'row'} spacing={8} display={{ base: 'none', md: 'flex' }}>
+          <Stack direction={'row'} spacing={8} display={isMobileLandscape ? 'none' : { base: 'none', md: 'flex' }}>
             <Navlink to="/" isActive={location.pathname === '/'}>Home</Navlink>
             <Navlink to="/services" isActive={location.pathname === '/services'}>Services</Navlink>
             <Navlink to="/packages" isActive={location.pathname === '/packages'}>Packages</Navlink>
@@ -98,7 +99,7 @@ const Navbar = () => {
             <Navlink to="/contact" isActive={location.pathname === '/contact'}>Contact</Navlink>
           </Stack>
 
-          <Stack direction={'row'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+          <Stack direction={'row'} spacing={4} display={isMobileLandscape ? 'none' : { base: 'none', md: 'flex' }}>
               <Button 
                 as={RouterLink} 
                 to="/contact" 
@@ -116,7 +117,7 @@ const Navbar = () => {
           </Stack>
           
            <IconButton
-            display={{ base: 'flex', md: 'none' }}
+            display={isMobileLandscape ? 'flex' : { base: 'flex', md: 'none' }}
             ref={btnRef}
             onClick={onOpen}
             icon={<HamburgerIcon />}
@@ -203,10 +204,10 @@ const Navlink = ({ to, children, isActive, ...props }) => (
         as={RouterLink}
         to={to}
         fontWeight={isActive ? "700" : "500"}
-        color={isActive ? "brand.500" : useColorModeValue('gray.600', 'whiteAlpha.800')}
+        color={isActive ? useColorModeValue('brand.600', 'brand.300') : useColorModeValue('gray.600', 'whiteAlpha.900')}
         position="relative"
         _hover={{ 
-          color: 'brand.500', 
+          color: useColorModeValue('brand.600', 'brand.300'), 
           textDecoration: 'none',
         }}
         _after={{
@@ -216,7 +217,7 @@ const Navlink = ({ to, children, isActive, ...props }) => (
           left: 0,
           width: isActive ? '100%' : '0%',
           height: '2px',
-          bgGradient: 'linear(to-r, brand.500, accent.500)',
+          bgGradient: useColorModeValue('linear(to-r, brand.500, accent.500)', 'linear(to-r, brand.300, accent.300)'),
           transition: 'width 0.3s ease',
         }}
         sx={{
