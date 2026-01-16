@@ -15,7 +15,7 @@ const Footer = () => {
       duration: 5000,
       isClosable: true,
       position: 'bottom-right',
-      variant: 'subtle',
+      variant: 'solid',
     });
   };
 
