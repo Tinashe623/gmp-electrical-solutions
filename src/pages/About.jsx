@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import solar7 from '../assets/images/solar7.jpg';
 import {
   Box,
   Container,
@@ -87,7 +89,7 @@ const About = () => {
             <Box>
                 <Image
                     rounded={'xl'}
-                    src="/images/solar-images/solar7.jpg"
+                    src={solar7}
                     alt="Solar Panel Installation"
                     objectFit={'cover'}
                     w={'full'}

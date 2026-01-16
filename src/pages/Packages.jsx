@@ -18,6 +18,11 @@ import {
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaSolarPanel } from 'react-icons/fa';
+import img1kva from '../assets/images/1kva.webp';
+import img3kva from '../assets/images/3kva.webp';
+import img5kva from '../assets/images/5kva.webp';
+import img8kva from '../assets/images/8kva.webp';
+import img10kva from '../assets/images/10kva.webp';
 
 const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopular, image }) => {
   return (
@@ -199,7 +204,7 @@ const Packages = () => {
         'Small energy-efficient fridge',
       ],
       isPopular: false,
-      image: '/images/solar-images/1kva.webp',
+      image: img1kva,
     },
     {
       name: 'Home',
@@ -227,7 +232,7 @@ const Packages = () => {
 'Printers and other appliances'
       ],
       isPopular: false,
-      image: '/images/solar-images/3kva.webp',
+      image: img3kva,
     },
     {
       name: 'Premium',
@@ -250,7 +255,7 @@ const Packages = () => {
         'Small water pump or borehole system',
       ],
       isPopular: true,
-      image: '/images/solar-images/5kva.webp',
+      image: img5kva,
     },
     {
       name: 'Business',
@@ -275,7 +280,7 @@ const Packages = () => {
         'Light workshop tools (e.g. small drills, grinders)',
       ],
       isPopular: false,
-      image: '/images/solar-images/8kva.webp',
+      image: img8kva,
     },
     {
       name: 'Enterprise',
@@ -305,7 +310,7 @@ const Packages = () => {
 
       ],
       isPopular: false,
-      image: '/images/solar-images/10kva.webp',
+      image: img10kva,
     },
   ];
 

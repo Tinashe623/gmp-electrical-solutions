@@ -3,6 +3,9 @@ import { Box, SimpleGrid, Icon, Text, Stack, Flex, Heading, Container, Button, u
 import { FaSolarPanel, FaBolt, FaTools, FaShieldAlt, FaCertificate, FaMapMarkerAlt } from 'react-icons/fa';
 import Hero from '../components/Hero';
 import { Link as RouterLink } from 'react-router-dom';
+import solar2 from '../assets/images/solar2.jpg';
+import solar3 from '../assets/images/solar3.jpg';
+import solar4 from '../assets/images/solar4.jpg';
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -192,7 +195,7 @@ const Home = () => {
               <Box h={{ base: '220px', md: '260px' }} overflow={'hidden'}>
                 <Box
                   as="img"
-                  src="/images/solar-images/solar2.jpg"
+                  src={solar2}
                   alt="4kW rooftop solar system in Mutare"
                   w="100%"
                   h="100%"
@@ -235,7 +238,7 @@ const Home = () => {
               <Box h={{ base: '220px', md: '260px' }} overflow={'hidden'}>
                 <Box
                   as="img"
-                  src="/images/solar-images/solar3.jpg"
+                  src={solar3}
                   alt="5kW office backup system in Mutare CBD"
                   w="100%"
                   h="100%"
@@ -278,7 +281,7 @@ const Home = () => {
               <Box h={{ base: '220px', md: '260px' }} overflow={'hidden'}>
                 <Box
                   as="img"
-                  src="/images/solar-images/solar4.jpg"
+                  src={solar4}
                   alt="8kW system for lodge outside Mutare"
                   w="100%"
                   h="100%"

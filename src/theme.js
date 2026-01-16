@@ -47,13 +47,38 @@ const theme = extendTheme({
   },
   styles: {
     global: (props) => ({
+      '@keyframes float': {
+        '0%, 100%': { transform: 'translateY(0px)' },
+        '50%': { transform: 'translateY(-10px)' },
+      },
+      '@keyframes fadeInUp': {
+        from: { opacity: 0, transform: 'translateY(30px)' },
+        to: { opacity: 1, transform: 'translateY(0)' },
+      },
+      '@keyframes scrollDot': {
+        '0%, 100%': { transform: 'translateY(0)', opacity: 1 },
+        '50%': { transform: 'translateY(10px)', opacity: 0.6 },
+      },
+      '@keyframes dividerWave': {
+        '0%, 100%': { transform: 'translateY(0)' },
+        '50%': { transform: 'translateY(6px)' },
+      },
       body: {
         bg: props.colorMode === 'dark' ? 'gray.900' : 'gray.50',
         color: props.colorMode === 'dark' ? 'whiteAlpha.900' : 'gray.800',
         transition: 'background-color 0.2s ease',
       },
-      '*': {
+      html: {
         scrollBehavior: 'smooth',
+      },
+      '.scroll-vertical': {
+        animation: 'scrollDot 1.5s ease-in-out infinite',
+      },
+      '.animate-float': {
+        animation: 'float 3s ease-in-out infinite',
+      },
+      '.animate-fade-in-up': {
+        animation: 'fadeInUp 0.6s ease-out forwards',
       },
     }),
   },

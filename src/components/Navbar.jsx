@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex, Text, Button, Stack, useColorModeValue, Container, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Image } from '@chakra-ui/react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -60,7 +61,7 @@ const Navbar = () => {
             cursor={'pointer'}
           >
             <Image 
-              src="/images/solar-images/logo.png" 
+              src={logo} 
               alt="G.M.P Electrical Logo" 
               h={{ base: '85px', md: '100px' }}
               w={'auto'}

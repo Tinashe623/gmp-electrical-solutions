@@ -16,6 +16,15 @@ import {
 } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
+import solarRoof from '../assets/images/solar-roof.jpg';
+import wiring1 from '../assets/images/wiring1.jpg';
+import wiring2 from '../assets/images/wiring2.jpg';
+import wiring3 from '../assets/images/wiring3.jpg';
+import wiring4 from '../assets/images/wiring 4.jpg';
+import solar1 from '../assets/images/solar1.jpg';
+import solar3 from '../assets/images/solar3.jpg';
+import solar4 from '../assets/images/solar4.jpg';
+import solar7 from '../assets/images/solar7.jpg';
 
 const ServiceSection = ({ title, description, features, imageSrc, reversed }) => {
   return (
@@ -116,7 +125,7 @@ const Services = () => {
             'Grid-tied and off-grid solutions',
             '25-year performance warranty',
           ]}
-          imageSrc="/images/solar-images/solar-roof.jpg"
+          imageSrc={solarRoof}
         />
         
         <Box bg={useColorModeValue('gray.50', 'gray.800')}>
@@ -131,7 +140,7 @@ const Services = () => {
                 'Industrial and residential applications',
                 'Code-compliant wire protection',
               ]}
-              imageSrc="/images/solar-images/wiring1.jpg"
+              imageSrc={wiring1}
             />
         </Box>
 
@@ -145,7 +154,7 @@ const Services = () => {
             'Smart home wiring',
             'Electrical safety inspections',
           ]}
-          imageSrc="/images/solar-images/wiring2.jpg"
+          imageSrc={wiring2}
         />
 
         <Box bg={useColorModeValue('gray.50', 'gray.900')}>
@@ -159,7 +168,7 @@ const Services = () => {
               'Fault finding and repairs',
               'Monitoring setup and support',
             ]}
-            imageSrc="/images/solar-images/wiring3.jpg"
+            imageSrc={wiring3}
           />
         </Box>
 
@@ -177,7 +186,7 @@ const Services = () => {
 
             <SimpleGrid columns={{ base: 2, md: 5 }} spacing={4}>
               <Image
-                src="/images/solar-images/solar-roof.jpg"
+                src={solarRoof}
                 alt="Solar panels neatly mounted on a roof"
                 rounded="xl"
                 objectFit="cover"
@@ -186,7 +195,7 @@ const Services = () => {
                 loading="lazy"
               />
               <Image
-                src="/images/solar-images/wiring1.jpg"
+                src={wiring1}
                 alt="Conduit and wiring neatly installed"
                 rounded="xl"
                 objectFit="cover"
@@ -195,7 +204,7 @@ const Services = () => {
                 loading="lazy"
               />
               <Image
-                src="/images/solar-images/wiring2.jpg"
+                src={wiring2}
                 alt="Distribution board wiring detail"
                 rounded="xl"
                 objectFit="cover"
@@ -204,7 +213,7 @@ const Services = () => {
                 loading="lazy"
               />
               <Image
-                src="/images/solar-images/wiring3.jpg"
+                src={wiring3}
                 alt="Electrical trunking and cable management"
                 rounded="xl"
                 objectFit="cover"
@@ -213,7 +222,7 @@ const Services = () => {
                 loading="lazy"
               />
               <Image
-                src="/images/solar-images/wiring 4.jpg"
+                src={wiring4}
                 alt="Finished inverter and battery installation"
                 rounded="xl"
                 objectFit="cover"
