@@ -114,7 +114,7 @@ const Services = () => {
         </Container>
       </Box>
 
-      <Stack spacing={8} py={10}>
+      <Stack spacing={8} pt={10} pb={0}>
         <ServiceSection
           title="Solar Panel Installation"
           description="Maximize your energy independence with our premium solar installation services. We handle everything from site assessment and design to installation and maintenance, ensuring you get the most efficient system for your property."

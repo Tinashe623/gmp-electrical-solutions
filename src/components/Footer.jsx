@@ -26,10 +26,6 @@ const Footer = () => {
       position={'relative'}
       mt={0}
     >
-      {/* Top Divider - Soft modern curve transitioning from previous section to Footer */}
-      <Box position="absolute" top={'-80px'} left={0} right={0} height={'80px'} overflow="hidden" pointerEvents="none">
-      </Box>
-
       <Container as={Stack} maxW={'container.xl'} py={16} position={'relative'} zIndex={1}>
         <SimpleGrid columns={{ base: 1, md: 4 }} spacing={12}>
           
@@ -40,8 +36,7 @@ const Footer = () => {
                 fontSize={'2xl'}
                 fontWeight={'800'}
                 letterSpacing={'tight'}
-                bgGradient="linear(to-r, white, brand.100)"
-                bgClip="text"
+                color={'white'}
               >
                 G.M.P<Text as="span" color="secondary.500"> Electrical</Text>
               </Text>

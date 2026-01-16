@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Text, Button, Stack, useColorModeValue, Container, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Image } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, Stack, useColorModeValue, useBreakpointValue, Container, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Image } from '@chakra-ui/react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import logo from '../assets/images/logo.png';
@@ -24,8 +24,13 @@ const Navbar = () => {
       position="sticky"
       top={0}
       zIndex={100}
-      bg={scrolled ? useColorModeValue('whiteAlpha.800', 'gray.900') : useColorModeValue('white', 'gray.800')}
-      backdropFilter={scrolled ? 'blur(10px)' : 'none'}
+      bg={useBreakpointValue({
+        base: '#1a202c',
+        md: scrolled
+          ? useColorModeValue('whiteAlpha.800', 'gray.900')
+          : useColorModeValue('white', 'gray.800'),
+      })}
+      backdropFilter={useBreakpointValue({ base: 'none', md: scrolled ? 'blur(10px)' : 'none' })}
       boxShadow={scrolled ? 'lg' : 'sm'}
       borderBottom="1px"
       borderColor={useColorModeValue('gray.100', 'gray.800')}
@@ -51,7 +56,7 @@ const Navbar = () => {
         Skip to content
       </Box>
       <Container maxW="container.xl">
-        <Flex minH={'90px'} align={'center'} justify={'space-between'}>
+        <Flex minH={{ base: '70px', md: '90px' }} align={'center'} justify={'space-between'}>
           <Flex 
             as={RouterLink}
             to="/"
@@ -63,7 +68,7 @@ const Navbar = () => {
             <Image 
               src={logo} 
               alt="G.M.P Electrical Logo" 
-              h={{ base: '85px', md: '100px' }}
+              h={{ base: '48px', md: '100px' }}
               w={'auto'}
               objectFit={'contain'}
               transition={'all 0.3s ease'}
@@ -74,12 +79,12 @@ const Navbar = () => {
               }}
             />
             <Text
-              fontSize={{ base: 'xl', md: '2xl' }}
+              fontSize={{ base: 'lg', md: '2xl' }}
               fontWeight={'800'}
               letterSpacing={'tight'}
               bgGradient="linear(to-r, brand.500, brand.600)"
               bgClip="text"
-              display={{ base: 'none', sm: 'inline-block' }}
+              display={{ base: 'inline-block', sm: 'inline-block' }}
             >
               G.M.P<Text as="span" bgGradient="linear(to-r, secondary.500, secondary.600)" bgClip="text"> Electrical</Text>
             </Text>

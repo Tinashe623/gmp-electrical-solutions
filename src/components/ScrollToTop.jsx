@@ -48,7 +48,7 @@ const ScrollToTop = () => {
         aria-label="Scroll to top"
         icon={<FaArrowUp />}
         onClick={scrollToTop}
-        size={'lg'}
+        size={{ base: 'md', md: 'lg' }}
         colorScheme={'brand'}
         rounded={'full'}
         boxShadow={'0 4px 20px rgba(27, 58, 95, 0.3)'}

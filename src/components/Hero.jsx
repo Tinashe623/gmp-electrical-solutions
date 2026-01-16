@@ -104,47 +104,6 @@ export default function Hero() {
         </Stack>
       </Container>
 
-      {/* Scroll indicator */}
-      <Box
-        position="absolute"
-        bottom={6}
-        left="50%"
-        transform="translateX(-50%)"
-        display={{ base: 'flex', md: 'flex' }}
-        alignItems="center"
-        gap={3}
-        color="whiteAlpha.800"
-        fontSize="xs"
-        zIndex={2}
-      >
-        <Box
-          w="32px"
-          h="52px"
-          borderRadius="full"
-          border="1px solid rgba(255,255,255,0.5)"
-          display="flex"
-          alignItems="flex-start"
-          justifyContent="center"
-          p={1}
-        >
-          <Box
-            w="4px"
-            h="10px"
-            borderRadius="full"
-            bg="whiteAlpha.900"
-            className="scroll-dot"
-          />
-        </Box>
-        <Text
-          textTransform="uppercase"
-          letterSpacing="0.24em"
-          fontWeight="500"
-        >
-          Scroll
-        </Text>
-      </Box>
-
-
     </Flex>
   );
 }
