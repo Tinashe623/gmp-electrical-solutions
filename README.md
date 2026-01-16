@@ -1,16 +1,79 @@
-# React + Vite
+# G.M.P Electrical Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![G.M.P Electrical Solutions Banner](/public/logo.png)
 
-Currently, two official plugins are available:
+**Reliable. certified. Efficient.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+G.M.P Electrical Solutions is a premier electrical and solar contracting company based in Mutare, Zimbabwe. We specialize in delivering high-quality, sustainable energy solutions for both residential and commercial clients. From complex wiring to state-of-the-art solar installations, our certified experts ensure safety, efficiency, and reliability in every project.
 
-## React Compiler
+## 🚀 Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Solar Power Systems**: Custom design and installation of solar panels, inverters, and battery storage solutions to ensure uninterrupted power.
+*   **Electrical Installations**: Complete residential and commercial wiring, tubing, and fittings adhering to the highest safety standards.
+*   **Backup Power Solutions**: Robust backup systems to keep your lights on and businesses running during power outages.
+*   **Responsive Design**: A modern, fully responsive website providing a seamless experience across all devices (Mobile, Tablet, Desktop).
+*   **Contact Integration**: Integrated contact form using EmailJS for direct client inquiries.
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is built using modern web development technologies to ensure performance, scalability, and a premium user experience.
+
+*   **[React](https://react.dev/)**: For building a dynamic and interactive user interface.
+*   **[Vite](https://vitejs.dev/)**: Next-generation frontend tooling for fast build times and hot module replacement.
+*   **[Chakra UI](https://chakra-ui.com/)**: A modular component library for accessible and easy-to-customize UI components.
+*   **[Framer Motion](https://www.framer.com/motion/)**: For smooth, professional animations and transitions.
+*   **[EmailJS](https://www.emailjs.com/)**: To enable client communication directly from the website without a backend server.
+*   **[React Icons](https://react-icons.github.io/react-icons/)**: Utilizing popular icon sets including FontAwesome and Bootstrap icons.
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally on your machine.
+
+### Prerequisites
+
+*   Node.js (v18 or higher)
+*   npm (v9 or higher)
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/Tinashe623/gmp-electrical-solutions.git
+    cd gmp-electrical-solutions
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
+
+    The application will be available at `http://localhost:5173`.
+
+### Building for Production
+
+To create a production-ready build:
+
+```bash
+npm run build
+```
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+<p align="center">
+  Built with ❤️ by Tinashe for G.M.P Electrical Solutions
+</p>
