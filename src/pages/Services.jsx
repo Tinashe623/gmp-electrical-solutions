@@ -22,14 +22,14 @@ const ServiceSection = ({ title, description, features, imageSrc, reversed }) =>
     <Container maxW={'container.xl'} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems={'center'}>
         <Stack order={{ base: 2, md: reversed ? 1 : 2 }} spacing={4}>
-          <Heading>{title}</Heading>
-          <Text color={'gray.600'} fontSize={'lg'}>
+          <Heading color={useColorModeValue('brand.500', 'white')}>{title}</Heading>
+          <Text color={useColorModeValue('gray.600', 'whiteAlpha.800')} fontSize={'lg'}>
             {description}
           </Text>
           <List spacing={3} mt={4}>
             {features.map((feature, index) => (
-              <ListItem key={index}>
-                 <ListIcon as={CheckCircleIcon} color="secondary.500" />
+              <ListItem key={index} color={useColorModeValue('gray.700', 'whiteAlpha.900')}>
+                 <ListIcon as={CheckCircleIcon} color="accent.500" />
                 {feature}
               </ListItem>
             ))}
@@ -53,13 +53,13 @@ const ServiceSection = ({ title, description, features, imageSrc, reversed }) =>
             h={'auto'}
             objectFit={'cover'}
             shadow={'2xl'}
-            borderWidth={'2px'}
-            borderColor={'brand.100'}
+            borderWidth={'1px'}
+            borderColor={useColorModeValue('gray.100', 'gray.700')}
             transition={'all 0.3s ease'}
             loading={'lazy'}
             _hover={{
-              transform: 'scale(1.02)',
-              shadow: '0 20px 40px rgba(0, 102, 255, 0.2)',
+              transform: 'translateY(-4px)',
+              shadow: '0 20px 40px rgba(27, 58, 95, 0.2)',
             }}
           />
         </Box>
@@ -72,7 +72,7 @@ const Services = () => {
   return (
     <Box>
       <Box 
-        bgGradient={'linear(to-br, brand.50, secondary.50, brand.100)'} 
+        bg={useColorModeValue('brand.50', 'gray.800')} 
         py={20} 
         textAlign={'center'}
         position={'relative'}
@@ -84,7 +84,10 @@ const Services = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage={'radial-gradient(circle at 70% 30%, rgba(0, 102, 255, 0.1) 0%, transparent 50%)'}
+          bgImage={useColorModeValue(
+            'radial-gradient(circle at 70% 30%, rgba(27, 58, 95, 0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at 70% 30%, rgba(27, 58, 95, 0.2) 0%, transparent 50%)'
+          )}
         />
         <Container maxW={'container.lg'} position={'relative'} zIndex={1}>
           <Heading 
@@ -92,12 +95,11 @@ const Services = () => {
             size="2xl" 
             mb={4}
             fontWeight={'800'}
-            bgGradient={'linear(to-r, brand.600, secondary.600)'}
-            bgClip={'text'}
+            color={useColorModeValue('brand.500', 'white')}
           >
             Our Expert Services
           </Heading>
-          <Text fontSize="xl" color={'gray.600'} lineHeight={'tall'}>
+          <Text fontSize="xl" color={useColorModeValue('gray.600', 'whiteAlpha.800')} lineHeight={'tall'}>
             From harnessing renewable energy to precise electrical installations, we deliver professional solutions for your home and business.
           </Text>
         </Container>
@@ -165,10 +167,10 @@ const Services = () => {
         <Box py={16} bg={useColorModeValue('white', 'gray.900')}>
           <Container maxW={'container.xl'}>
             <Stack spacing={6} mb={8} textAlign={{ base: 'left', md: 'center' }}>
-              <Heading fontSize={{ base: '2xl', md: '3xl' }}>
+              <Heading fontSize={{ base: '2xl', md: '3xl' }} color={useColorModeValue('brand.500', 'white')}>
                 Neat, safe wiring on every project
               </Heading>
-              <Text fontSize={'md'} color={'gray.600'} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
+              <Text fontSize={'md'} color={useColorModeValue('gray.600', 'whiteAlpha.700')} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
                 A quick look at how we route cables, mount equipment, and finish off our electrical work.
               </Text>
             </Stack>

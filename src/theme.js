@@ -2,69 +2,60 @@ import { extendTheme } from '@chakra-ui/react';
 
 const colors = {
   brand: {
-    50: '#e6eef7',
-    100: '#b3d0e8',
-    200: '#80b1d9',
-    300: '#4d93ca',
-    400: '#2a6fa8',
-    500: '#1B3A5F', // Navy Blue - Primary (from banner)
-    600: '#162f4d',
-    700: '#11243a',
-    800: '#0c1928',
-    900: '#060d15',
+    50: '#f0f5fa',
+    100: '#d1e1f0',
+    200: '#a3c3e1',
+    300: '#75a5d2',
+    400: '#4787c3',
+    500: '#1B3A5F', // Deep Navy - Primary
+    600: '#162e4c',
+    700: '#102339',
+    800: '#0b1726',
+    900: '#050c13',
   },
   secondary: {
-    50: '#fff5e6',
-    100: '#ffe0b3',
-    200: '#ffca80',
-    300: '#ffb54d',
-    400: '#ffa01a',
-    500: '#FF8C00', // Vibrant Orange - Accent (from banner)
-    600: '#cc7000',
-    700: '#995400',
-    800: '#663800',
-    900: '#331c00',
+    50: '#fff9eb',
+    100: '#ffefc7',
+    200: '#ffe08f',
+    300: '#ffd057',
+    400: '#ffc11f',
+    500: '#F5A623', // Golden Yellow - Accent
+    600: '#c4851c',
+    700: '#936415',
+    800: '#62420e',
+    900: '#312107',
   },
   accent: {
-    50: '#e6fef4',
-    100: '#b3fce0',
-    200: '#80facc',
-    300: '#4df8b8',
-    400: '#1af6a4',
-    500: '#10B981', // Vibrant Green - Sustainability
-    600: '#0d9467',
-    700: '#0a6f4d',
-    800: '#064a33',
-    900: '#03251a',
+    50: '#ecfdf5',
+    100: '#d1fae5',
+    200: '#a7f3d0',
+    300: '#6ee7b7',
+    400: '#34d399',
+    500: '#10B981', // Emerald Green - Sustainability
+    600: '#059669',
+    700: '#047857',
+    800: '#065f46',
+    900: '#064e3b',
   },
 };
 
 const theme = extendTheme({
   colors,
   fonts: {
-    heading: `'Outfit', 'Inter', sans-serif`,
+    heading: `'Inter', sans-serif`,
     body: `'Inter', sans-serif`,
   },
   styles: {
-    global: {
+    global: (props) => ({
       body: {
-        bg: 'gray.50',
-        color: 'gray.800',
-        bg: 'gray.50',
-        backgroundImage: `
-          url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z' fill='%231B3A5F' fill-opacity='0.1'/%3E%3C/svg%3E"),
-          radial-gradient(at 0% 0%, rgba(27, 58, 95, 0.05) 0px, transparent 50%),
-          radial-gradient(at 100% 0%, rgba(255, 140, 0, 0.05) 0px, transparent 50%),
-          radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
-          radial-gradient(at 0% 100%, rgba(27, 58, 95, 0.05) 0px, transparent 50%)
-        `,
-        backgroundSize: '120px 120px, 100% 100%, 100% 100%, 100% 100%, 100% 100%',
-        backgroundAttachment: 'fixed',
+        bg: props.colorMode === 'dark' ? 'gray.900' : 'gray.50',
+        color: props.colorMode === 'dark' ? 'whiteAlpha.900' : 'gray.800',
+        transition: 'background-color 0.2s ease',
       },
       '*': {
         scrollBehavior: 'smooth',
       },
-    },
+    }),
   },
   components: {
     Button: {

@@ -51,11 +51,11 @@ const ScrollToTop = () => {
         size={'lg'}
         colorScheme={'brand'}
         rounded={'full'}
-        boxShadow={'0 4px 20px rgba(0, 102, 255, 0.4)'}
-        bgGradient={'linear(to-br, brand.500, accent.500)'}
+        boxShadow={'0 4px 20px rgba(27, 58, 95, 0.3)'}
+        bgGradient={'linear(to-br, brand.500, brand.600)'}
         _hover={{
           transform: 'translateY(-4px)',
-          boxShadow: '0 6px 30px rgba(0, 102, 255, 0.6)',
+          boxShadow: '0 6px 30px rgba(27, 58, 95, 0.4)',
         }}
         _active={{
           transform: 'translateY(-2px)',

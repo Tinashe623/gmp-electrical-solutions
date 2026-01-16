@@ -18,8 +18,8 @@ export default function Hero() {
       w="full"
       minH={{ base: "80vh", md: "95vh" }}
       bgImage={{
-        base: "linear-gradient(to right, rgba(6, 13, 21, 0.82), rgba(255, 140, 0, 0.55)), url('/images/solar-images/hero-banner.webp')",
-        md: "linear-gradient(to right, rgba(6, 13, 21, 0.78), rgba(255, 140, 0, 0.5)), url('/images/solar-images/hero-banner.webp')",
+        base: "linear-gradient(to bottom, rgba(6, 13, 21, 0.8), rgba(27, 58, 95, 0.4)), url('/images/solar-images/hero-banner.webp')",
+        md: "linear-gradient(to right, rgba(6, 13, 21, 0.85), rgba(27, 58, 95, 0.3)), url('/images/solar-images/hero-banner.webp')",
       }}
       bgSize="cover"
       bgPosition={{ base: "center center", md: "center center" }}

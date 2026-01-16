@@ -23,25 +23,25 @@ const ContactInfo = ({ icon, title, text }) => {
     return (
         <Stack direction={'row'} align={'center'} spacing={4}>
             <Box
-                bgGradient={'linear(to-br, brand.500, accent.500)'}
+                bgGradient={'linear(to-br, brand.500, brand.600)'}
                 color={'white'}
                 rounded={'full'}
                 p={3}
                 display={'flex'}
                 alignItems={'center'}
                 justifyContent={'center'}
-                boxShadow={'0 4px 15px rgba(0, 102, 255, 0.3)'}
+                boxShadow={'0 4px 15px rgba(27, 58, 95, 0.2)'}
                 transition={'all 0.3s ease'}
                 _hover={{
                   transform: 'scale(1.1)',
-                  boxShadow: '0 6px 20px rgba(0, 102, 255, 0.4)',
+                  boxShadow: '0 6px 20px rgba(27, 58, 95, 0.3)',
                 }}
             >
                 <Icon as={icon} w={5} h={5} />
             </Box>
             <Box>
-                <Text fontWeight={'bold'} fontSize={'lg'}>{title}</Text>
-                <Text color={'gray.600'}>{text}</Text>
+                <Text fontWeight={'bold'} fontSize={'lg'} color={useColorModeValue('brand.500', 'white')}>{title}</Text>
+                <Text color={useColorModeValue('gray.600', 'whiteAlpha.700')}>{text}</Text>
             </Box>
         </Stack>
     )
@@ -96,8 +96,8 @@ const Contact = () => {
           
           {/* Contact Info */}
           <Stack spacing={8}>
-            <Heading>Get In Touch</Heading>
-            <Text color={'gray.600'} fontSize={'lg'}>
+            <Heading color={useColorModeValue('brand.500', 'white')}>Get In Touch</Heading>
+            <Text color={useColorModeValue('gray.600', 'whiteAlpha.800')} fontSize={'lg'}>
                 Have a question, need an electrician, or ready to start your solar project? Fill out the form or give us a call and we will respond as soon as possible.
             </Text>
             
@@ -127,17 +127,17 @@ const Contact = () => {
             p={8}
             rounded={'2xl'}
             shadow={'2xl'}
-            borderWidth={'2px'}
-            borderColor={'brand.100'}
+            borderWidth={'1px'}
+            borderColor={useColorModeValue('gray.100', 'gray.700')}
             transition={'all 0.3s ease'}
             _hover={{
-              borderColor: 'brand.200',
-              shadow: '0 20px 40px rgba(0, 102, 255, 0.15)',
+              borderColor: 'brand.100',
+              shadow: '0 20px 40px rgba(27, 58, 95, 0.1)',
             }}
           >
             <form onSubmit={handleSubmit}>
                 <VStack spacing={5}>
-                     <Heading size={'md'} w={'full'}>Send us a Message</Heading>
+                     <Heading size={'md'} w={'full'} color={useColorModeValue('brand.500', 'white')}>Send us a Message</Heading>
                     <FormControl id="name" isRequired>
                         <FormLabel fontWeight={'600'}>Name</FormLabel>
                         <Input 

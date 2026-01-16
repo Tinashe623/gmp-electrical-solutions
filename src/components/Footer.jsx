@@ -25,7 +25,7 @@ const Footer = () => {
                 fontSize={'2xl'}
                 fontWeight={'800'}
                 letterSpacing={'tight'}
-                bgGradient="linear(to-r, white, secondary.400)"
+                bgGradient="linear(to-r, white, brand.100)"
                 bgClip="text"
               >
                 G.M.P<Text as="span" color="secondary.500"> Electrical</Text>
@@ -73,16 +73,16 @@ const Footer = () => {
             <Text 
                 as="a" 
                 href="mailto:info@gmp-electrical.com"
-                color={'secondary.400'} 
-                _hover={{ color: 'secondary.300' }}
+                color={'gray.400'} 
+                _hover={{ color: 'secondary.500' }}
             >
                 info@gmp-electrical.com
             </Text>
             <Text 
                 as="a" 
                 href="tel:+263779941427"
-                color={'secondary.400'} 
-                _hover={{ color: 'secondary.300' }}
+                color={'gray.400'} 
+                _hover={{ color: 'secondary.500' }}
             >
                 +263 779 941 427
             </Text>
@@ -115,7 +115,7 @@ const Link = ({ children, to }) => (
       transition={'all 0.3s ease'}
       fontSize={'sm'}
       _hover={{ 
-        color: 'secondary.400',
+        color: 'secondary.500',
         textDecoration: 'none',
         transform: 'translateX(4px)',
       }}
@@ -142,7 +142,7 @@ const SocialButton = ({ children, label, href }) => {
         bg: 'secondary.500',
         color: 'white',
         transform: 'translateY(-4px)',
-        boxShadow: '0 8px 20px rgba(255, 140, 0, 0.3)',
+        boxShadow: '0 8px 20px rgba(245, 166, 35, 0.4)',
       }}
     >
       <Icon as={() => children} w={5} h={5} />

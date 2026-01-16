@@ -23,11 +23,11 @@ const Navbar = () => {
       position="sticky"
       top={0}
       zIndex={100}
-      bg={scrolled ? useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(26, 32, 44, 0.9)') : useColorModeValue('white', 'gray.800')}
+      bg={scrolled ? useColorModeValue('whiteAlpha.800', 'gray.900') : useColorModeValue('white', 'gray.800')}
       backdropFilter={scrolled ? 'blur(10px)' : 'none'}
       boxShadow={scrolled ? 'lg' : 'sm'}
       borderBottom="1px"
-      borderColor={useColorModeValue('gray.100', 'gray.700')}
+      borderColor={useColorModeValue('gray.100', 'gray.800')}
       transition="all 0.3s ease"
     >
       {/* Skip to content link for accessibility */}
@@ -66,21 +66,21 @@ const Navbar = () => {
               w={'auto'}
               objectFit={'contain'}
               transition={'all 0.3s ease'}
-              filter={'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15))'}
+              filter={useColorModeValue('drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))', 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))')}
               _hover={{
-                filter: 'drop-shadow(0 6px 12px rgba(0, 102, 255, 0.4))',
-                transform: 'scale(1.05)',
+                filter: 'drop-shadow(0 6px 12px rgba(27, 58, 95, 0.3))',
+                transform: 'scale(1.02)',
               }}
             />
             <Text
               fontSize={{ base: 'xl', md: '2xl' }}
               fontWeight={'800'}
               letterSpacing={'tight'}
-              bgGradient="linear(to-r, brand.500, secondary.500)"
+              bgGradient="linear(to-r, brand.500, brand.600)"
               bgClip="text"
               display={{ base: 'none', sm: 'inline-block' }}
             >
-              G.M.P<Text as="span" bgGradient="linear(to-r, secondary.500, accent.500)" bgClip="text"> Electrical</Text>
+              G.M.P<Text as="span" bgGradient="linear(to-r, secondary.500, secondary.600)" bgClip="text"> Electrical</Text>
             </Text>
           </Flex>
 
@@ -197,7 +197,7 @@ const Navlink = ({ to, children, isActive, ...props }) => (
         as={RouterLink}
         to={to}
         fontWeight={isActive ? "700" : "500"}
-        color={isActive ? "brand.500" : "gray.600"}
+        color={isActive ? "brand.500" : useColorModeValue('gray.600', 'whiteAlpha.800')}
         position="relative"
         _hover={{ 
           color: 'brand.500', 

@@ -13,38 +13,35 @@ const Feature = ({ title, text, icon }) => {
         align={'center'}
         pos={'relative'}
         boxShadow={'xl'}
-        borderWidth={'2px'}
-        borderColor={'transparent'}
-        bgGradient={useColorModeValue(
-          'linear(to-br, white, gray.50)',
-          'linear(to-br, gray.800, gray.900)'
-        )}
+        borderWidth={'1px'}
+        borderColor={useColorModeValue('gray.50', 'gray.700')}
         _hover={{ 
-          transform: 'translateY(-8px) scale(1.02)',
-          boxShadow: '0 20px 40px rgba(0, 102, 255, 0.2)',
-          borderColor: 'brand.200',
+          transform: 'translateY(-8px)',
+          boxShadow: '0 20px 40px rgba(27, 58, 95, 0.1)',
+          borderColor: 'brand.100',
         }}
         transition={'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'}
     >
       <Flex
-        w={20}
-        h={20}
+        w={16}
+        h={16}
         align={'center'}
         justify={'center'}
         color={'white'}
-        rounded={'full'}
-        bgGradient={'linear(to-br, brand.500, accent.500)'}
-        mb={4}
-        boxShadow={'0 8px 20px rgba(0, 102, 255, 0.3)'}
-        _groupHover={{
-          transform: 'scale(1.1)',
-        }}
+        rounded={'2xl'}
+        bgGradient={'linear(to-br, brand.500, brand.600)'}
+        mb={6}
+        boxShadow={'0 8px 15px rgba(27, 58, 95, 0.2)'}
         transition={'all 0.3s ease'}
       >
         {icon}
       </Flex>
-      <Text fontWeight={700} fontSize={'xl'} color={'gray.800'}>{title}</Text>
-      <Text color={'gray.600'} textAlign={'center'} lineHeight={'tall'}>{text}</Text>
+      <Heading size="md" mb={4} color={useColorModeValue('brand.500', 'white')}>
+        {title}
+      </Heading>
+      <Text color={useColorModeValue('gray.600', 'whiteAlpha.700')} textAlign={'center'} lineHeight={'tall'}>
+        {text}
+      </Text>
     </Stack>
   );
 };
@@ -61,12 +58,11 @@ const Home = () => {
             <Heading 
               fontSize={'4xl'} 
               fontWeight={'800'}
-              bgGradient={'linear(to-r, brand.500, accent.500)'}
-              bgClip={'text'}
+              color={useColorModeValue('brand.500', 'white')}
             >
               Modern Solar & Electrical Solutions
             </Heading>
-            <Text color={'gray.600'} fontSize={'xl'} lineHeight={'tall'}>
+            <Text color={useColorModeValue('gray.600', 'whiteAlpha.800')} fontSize={'xl'} lineHeight={'tall'}>
               From rooftop solar and backup power to safe wiring and neat conduit work, we design, install, and maintain systems that keep your home or business powered every day.
             </Text>
           </Stack>
@@ -108,10 +104,10 @@ const Home = () => {
                 color="brand.500"
               />
               <Box>
-                <Text fontWeight="700" fontSize="sm" color="gray.800">
+                <Text fontWeight="700" fontSize="sm" color={useColorModeValue('gray.800', 'whiteAlpha.900')}>
                   Licensed & Insured
                 </Text>
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
                   Compliant installations and safe workmanship on every job.
                 </Text>
               </Box>
@@ -124,10 +120,10 @@ const Home = () => {
                 color="secondary.500"
               />
               <Box>
-                <Text fontWeight="700" fontSize="sm" color="gray.800">
+                <Text fontWeight="700" fontSize="sm" color={useColorModeValue('gray.800', 'whiteAlpha.900')}>
                   Certified Solar Installers
                 </Text>
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
                   Trained to design and commission reliable solar systems.
                 </Text>
               </Box>
@@ -140,10 +136,10 @@ const Home = () => {
                 color="accent.500"
               />
               <Box>
-                <Text fontWeight="700" fontSize="sm" color="gray.800">
+                <Text fontWeight="700" fontSize="sm" color={useColorModeValue('gray.800', 'whiteAlpha.900')}>
                   Local to Mutare
                 </Text>
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
                   Fast support for homes and businesses in Mutare & surrounds.
                 </Text>
               </Box>
@@ -161,18 +157,18 @@ const Home = () => {
               fontWeight={'600'}
               textTransform={'uppercase'}
               letterSpacing={'0.18em'}
-              color={'brand.500'}
+              color={useColorModeValue('brand.500', 'brand.300')}
             >
               Recent installations
             </Text>
             <Heading
               fontSize={{ base: '2xl', md: '3xl' }}
               fontWeight={'800'}
-              color={'gray.800'}
+              color={useColorModeValue('gray.800', 'white')}
             >
               Projects we&apos;ve completed for clients like you
             </Heading>
-            <Text fontSize={'md'} color={'gray.600'} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
+            <Text fontSize={'md'} color={useColorModeValue('gray.600', 'whiteAlpha.800')} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
               A snapshot of some of the systems we&apos;ve recently installed in and around Mutare.
             </Text>
           </Stack>
@@ -209,13 +205,13 @@ const Home = () => {
                 />
               </Box>
               <Box p={6}>
-                <Text fontWeight="700" fontSize="md" color="gray.800" mb={1}>
+                <Text fontWeight="700" fontSize="md" color={useColorModeValue('gray.800', 'white')} mb={1}>
                   3kva Home System
                 </Text>
-                <Text fontSize="sm" color="gray.500" mb={2}>
+                <Text fontSize="sm" color={useColorModeValue('gray.500', 'whiteAlpha.600')} mb={2}>
                   Mutasa, Zimbabwe
                 </Text>
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.800')}>
                   Roof-mounted solar with battery backup to keep lights, fridge, Wi‑Fi and TV running through outages.
                 </Text>
               </Box>
@@ -252,13 +248,13 @@ const Home = () => {
                 />
               </Box>
               <Box p={6}>
-                <Text fontWeight="700" fontSize="md" color="gray.800" mb={1}>
+                <Text fontWeight="700" fontSize="md" color={useColorModeValue('gray.800', 'white')} mb={1}>
                   5kW Office Backup
                 </Text>
-                <Text fontSize="sm" color="gray.500" mb={2}>
+                <Text fontSize="sm" color={useColorModeValue('gray.500', 'whiteAlpha.600')} mb={2}>
                   Mutare CBD
                 </Text>
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.800')}>
                   Hybrid inverter and lithium batteries powering computers, POS systems and lighting for a small office.
                 </Text>
               </Box>
@@ -295,13 +291,13 @@ const Home = () => {
                 />
               </Box>
               <Box p={6}>
-                <Text fontWeight="700" fontSize="md" color="gray.800" mb={1}>
+                <Text fontWeight="700" fontSize="md" color={useColorModeValue('gray.800', 'white')} mb={1}>
                   5.5kva Home Installation
                 </Text>
-                <Text fontSize="sm" color="gray.500" mb={2}>
+                <Text fontSize="sm" color={useColorModeValue('gray.500', 'whiteAlpha.600')} mb={2}>
                   Chipinge, Zimbabwe
                 </Text>
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.800')}>
                   Solar + battery setup supplying guest rooms, kitchen equipment and water pumps with clean power.
                 </Text>
               </Box>
@@ -311,7 +307,7 @@ const Home = () => {
       </Box>
 
       <Box
-        bgGradient={'linear(to-br, brand.500, secondary.500, brand.600)'}
+        bgGradient={'linear(to-br, brand.500, brand.700)'}
         position={'relative'}
         overflow={'hidden'}
         py={24}
@@ -325,7 +321,7 @@ const Home = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage={'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)'}
+          bgImage={'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'}
           opacity={0.5}
         />
         
@@ -335,7 +331,6 @@ const Home = () => {
                 color={'white'} 
                 fontSize={{ base: '3xl', md: '5xl' }} 
                 fontWeight={'800'}
-                textShadow={'0 4px 20px rgba(0, 0, 0, 0.2)'}
               >
                   Ready to Switch to Solar?
               </Heading>
@@ -348,15 +343,16 @@ const Home = () => {
                   size={'lg'}
                   h={'56px'}
                   px={10}
-                  bg={'white'}
-                  color={'brand.600'}
+                  bg={'secondary.500'}
+                  color={'white'}
                   rounded={'full'}
                   fontSize={'lg'}
                   fontWeight={'700'}
-                  boxShadow={'0 8px 30px rgba(255, 255, 255, 0.3)'}
+                  boxShadow={'0 8px 30px rgba(245, 166, 35, 0.3)'}
                   _hover={{ 
+                    bg: 'secondary.600',
                     transform: 'translateY(-4px)',
-                    boxShadow: '0 12px 40px rgba(255, 255, 255, 0.5)',
+                    boxShadow: '0 12px 40px rgba(245, 166, 35, 0.4)',
                   }}
                   transition={'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}
               >

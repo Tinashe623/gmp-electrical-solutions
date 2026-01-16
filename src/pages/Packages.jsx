@@ -27,15 +27,11 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
       rounded={'2xl'}
       pos={'relative'}
       boxShadow={'xl'}
-      borderWidth={'2px'}
-      borderColor={isPopular ? 'brand.500' : 'transparent'}
-      bgGradient={useColorModeValue(
-        isPopular ? 'linear(to-br, brand.50, white)' : 'linear(to-br, white, gray.50)',
-        'linear(to-br, gray.800, gray.900)'
-      )}
+      borderWidth={'1px'}
+      borderColor={isPopular ? 'brand.200' : useColorModeValue('gray.50', 'gray.700')}
       _hover={{
-        transform: 'translateY(-8px) scale(1.02)',
-        boxShadow: isPopular ? '0 20px 40px rgba(27, 58, 95, 0.3)' : '0 20px 40px rgba(27, 58, 95, 0.2)',
+        transform: 'translateY(-8px)',
+        boxShadow: isPopular ? '0 20px 40px rgba(27, 58, 95, 0.2)' : '0 20px 40px rgba(27, 58, 95, 0.1)',
         borderColor: 'brand.300',
       }}
       transition={'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'}
@@ -45,14 +41,14 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
           position={'absolute'}
           top={-3}
           right={8}
-          bgGradient={'linear(to-r, brand.500, secondary.500)'}
+          bgGradient={'linear(to-r, brand.500, brand.600)'}
           color={'white'}
           px={4}
           py={1}
           rounded={'full'}
           fontSize={'sm'}
           fontWeight={'700'}
-          boxShadow={'0 4px 15px rgba(27, 58, 95, 0.4)'}
+          boxShadow={'0 4px 15px rgba(27, 58, 95, 0.3)'}
         >
           Most Popular
         </Badge>
@@ -87,7 +83,7 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
               h={16}
               color={'brand.400'}
             />
-            <Text fontSize={'sm'} color={'gray.500'} fontWeight={'600'}>
+            <Text fontSize={'sm'} color={useColorModeValue('gray.500', 'whiteAlpha.600')} fontWeight={'600'}>
               {capacity} System
             </Text>
           </VStack>
@@ -98,27 +94,26 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
         <Heading
           fontSize={'2xl'}
           fontWeight={'800'}
-          bgGradient={'linear(to-r, brand.600, secondary.600)'}
-          bgClip={'text'}
+          color={useColorModeValue('brand.500', 'white')}
         >
           {name}
         </Heading>
 
-        <Text fontSize={'sm'} color={'gray.600'} fontWeight={'600'}>
+        <Text fontSize={'sm'} color={useColorModeValue('gray.600', 'whiteAlpha.800')} fontWeight={'600'}>
           {capacity} Solar System
         </Text>
 
         {idealFor && (
-          <Text fontSize={'sm'} color={'gray.500'}>
+          <Text fontSize={'sm'} color={useColorModeValue('gray.500', 'whiteAlpha.600')}>
             Best for: {idealFor}
           </Text>
         )}
 
         <Box mt={2}>
-          <Text fontSize={'2xl'} fontWeight={'800'} color={'gray.800'}>
+          <Text fontSize={'2xl'} fontWeight={'800'} color={useColorModeValue('gray.800', 'white')}>
             {price}
           </Text>
-          <Text fontSize={'xs'} color={'gray.500'} textTransform={'uppercase'} letterSpacing={'0.08em'}>
+          <Text fontSize={'xs'} color={useColorModeValue('gray.500', 'whiteAlpha.600')} textTransform={'uppercase'} letterSpacing={'0.08em'}>
             Turnkey supply & installation
           </Text>
         </Box>
@@ -126,8 +121,8 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
         <List spacing={3} w={'full'} mt={4}>
           {features.map((feature, index) => (
             <ListItem key={index} display={'flex'} alignItems={'start'}>
-              <ListIcon as={CheckCircleIcon} color={'secondary.500'} mt={1} />
-              <Text fontSize={'sm'} color={'gray.700'}>
+              <ListIcon as={CheckCircleIcon} color={'accent.500'} mt={1} />
+              <Text fontSize={'sm'} color={useColorModeValue('gray.700', 'whiteAlpha.800')}>
                 {feature}
               </Text>
             </ListItem>
@@ -141,7 +136,7 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
               fontWeight={'700'}
               textTransform={'uppercase'}
               letterSpacing={'0.08em'}
-              color={'gray.500'}
+              color={useColorModeValue('gray.500', 'whiteAlpha.600')}
               mb={1}
             >
               What it can power
@@ -149,7 +144,7 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
             <List spacing={1} pl={1}>
               {powers.map((item, index) => (
                 <ListItem key={index}>
-                  <Text fontSize={'xs'} color={'gray.600'}>
+                  <Text fontSize={'xs'} color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
                     • {item}
                   </Text>
                 </ListItem>
@@ -164,14 +159,14 @@ const PackageCard = ({ name, capacity, price, features, powers, idealFor, isPopu
           w={'full'}
           mt={6}
           size={'lg'}
-          bgGradient={isPopular ? 'linear(to-r, brand.500, secondary.500)' : 'linear(to-r, gray.700, gray.800)'}
+          bg={isPopular ? 'secondary.500' : useColorModeValue('brand.500', 'gray.700')}
           color={'white'}
           rounded={'full'}
           fontWeight={'700'}
           _hover={{
-            bgGradient: isPopular ? 'linear(to-r, brand.600, secondary.600)' : 'linear(to-r, gray.800, gray.900)',
+            bg: isPopular ? 'secondary.600' : useColorModeValue('brand.600', 'gray.800'),
             transform: 'translateY(-2px)',
-            boxShadow: '0 8px 20px rgba(27, 58, 95, 0.4)',
+            boxShadow: isPopular ? '0 8px 20px rgba(245, 166, 35, 0.3)' : '0 8px 20px rgba(27, 58, 95, 0.3)',
           }}
           transition={'all 0.3s ease'}
         >
@@ -318,7 +313,7 @@ const Packages = () => {
     <Box id="main-content">
       {/* Header Section */}
       <Box
-        bgGradient={'linear(to-br, brand.50, accent.50, secondary.50)'}
+        bg={useColorModeValue('brand.50', 'gray.800')}
         py={20}
         textAlign={'center'}
         position={'relative'}
@@ -330,7 +325,10 @@ const Packages = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage={'radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%)'}
+          bgImage={useColorModeValue(
+            'radial-gradient(circle at 50% 50%, rgba(27, 58, 95, 0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at 50% 50%, rgba(27, 58, 95, 0.2) 0%, transparent 50%)'
+          )}
         />
         <Container maxW={'container.lg'} position={'relative'} zIndex={1}>
           <Heading
@@ -338,12 +336,11 @@ const Packages = () => {
             size="2xl"
             mb={4}
             fontWeight={'800'}
-            bgGradient={'linear(to-r, brand.600, accent.600)'}
-            bgClip={'text'}
+            color={useColorModeValue('brand.500', 'white')}
           >
             Solar Packages
           </Heading>
-          <Text fontSize="xl" color={'gray.600'} lineHeight={'tall'} maxW={'2xl'} mx={'auto'}>
+          <Text fontSize="xl" color={useColorModeValue('gray.600', 'whiteAlpha.800')} lineHeight={'tall'} maxW={'2xl'} mx={'auto'}>
             Choose the perfect solar solution for your home or business. All packages include professional installation, premium equipment, and comprehensive warranties.
           </Text>
         </Container>
@@ -360,11 +357,10 @@ const Packages = () => {
 
       {/* CTA Section */}
       <Box
-        bgGradient={'linear(to-br, brand.500, accent.500, secondary.500)'}
+        bgGradient={'linear(to-br, brand.500, brand.700)'}
         position={'relative'}
         overflow={'hidden'}
         py={20}
-
         mt={16}
         mb={0}
       >
@@ -374,7 +370,7 @@ const Packages = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage={'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)'}
+          bgImage={'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'}
           opacity={0.5}
         />
 
@@ -384,7 +380,6 @@ const Packages = () => {
               color={'white'}
               fontSize={{ base: '3xl', md: '5xl' }}
               fontWeight={'800'}
-              textShadow={'0 4px 20px rgba(0, 0, 0, 0.2)'}
             >
               Need a Custom Package?
             </Heading>
@@ -397,15 +392,16 @@ const Packages = () => {
               size={'lg'}
               h={'56px'}
               px={10}
-              bg={'white'}
-              color={'brand.600'}
+              bg={'secondary.500'}
+              color={'white'}
               rounded={'full'}
               fontSize={'lg'}
               fontWeight={'700'}
-              boxShadow={'0 8px 30px rgba(255, 255, 255, 0.3)'}
+              boxShadow={'0 8px 30px rgba(245, 166, 35, 0.3)'}
               _hover={{
+                bg: 'secondary.600',
                 transform: 'translateY(-4px)',
-                boxShadow: '0 12px 40px rgba(255, 255, 255, 0.5)',
+                boxShadow: '0 12px 40px rgba(245, 166, 35, 0.4)',
               }}
               transition={'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}
             >

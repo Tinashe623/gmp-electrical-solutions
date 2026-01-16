@@ -38,7 +38,7 @@ const Stat = ({ label, value }) => {
              >
                 {value}
             </Text>
-            <Text fontSize={'md'} color={'gray.600'} fontWeight={'600'}>
+             <Text fontSize={'md'} color={useColorModeValue('gray.600', 'whiteAlpha.700')} fontWeight={'600'}>
                 {label}
             </Text>
         </Stack>
@@ -49,7 +49,7 @@ const About = () => {
   return (
     <Box>
       <Box 
-        bgGradient={'linear(to-br, brand.50, accent.50, secondary.50)'} 
+        bg={useColorModeValue('brand.50', 'gray.800')} 
         py={20} 
         textAlign={'center'}
         position={'relative'}
@@ -61,7 +61,10 @@ const About = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage={'radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.1) 0%, transparent 50%)'}
+          bgImage={useColorModeValue(
+            'radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.1) 0%, transparent 50%)',
+            'radial-gradient(circle at 30% 70%, rgba(27, 58, 95, 0.2) 0%, transparent 50%)'
+          )}
         />
         <Container maxW={'container.lg'} position={'relative'} zIndex={1}>
           <Heading 
@@ -69,12 +72,11 @@ const About = () => {
             size="2xl" 
             mb={4}
             fontWeight={'800'}
-            bgGradient={'linear(to-r, brand.600, secondary.600)'}
-            bgClip={'text'}
+            color={useColorModeValue('brand.500', 'white')}
           >
             About G.M.P Electrical
           </Heading>
-          <Text fontSize="xl" color={'gray.600'} lineHeight={'tall'}>
+          <Text fontSize="xl" color={useColorModeValue('gray.600', 'whiteAlpha.800')} lineHeight={'tall'}>
             Dedicated to powering a sustainable future through innovation and craftsmanship.
           </Text>
         </Container>
@@ -96,11 +98,11 @@ const About = () => {
                 />
             </Box>
             <Box>
-                <Heading mb={6}>Our Mission</Heading>
-                <Text fontSize={'lg'} color={'gray.600'} mb={4}>
+                <Heading mb={6} color={useColorModeValue('brand.500', 'white')}>Our Mission</Heading>
+                <Text fontSize={'lg'} color={useColorModeValue('gray.600', 'whiteAlpha.800')} mb={4}>
                     At G.M.P Electrical, we believe reliable power should be simple, safe, and sustainable. Our mission is to help homeowners and businesses move to cleaner energy while keeping every installation neat, compliant, and built to last.
                 </Text>
-                 <Text fontSize={'lg'} color={'gray.600'}>
+                 <Text fontSize={'lg'} color={useColorModeValue('gray.600', 'whiteAlpha.800')}>
                     With over a decade of hands-on experience, our team has grown from a small local crew to a trusted solar and electrical partner for clients across Mutare and surrounding areas. We combine modern technology with solid workmanship and honest advice.
                 </Text>
             </Box>
@@ -108,26 +110,26 @@ const About = () => {
         
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} mb={20}>
              <Box>
-                  <Heading mb={6}>Why Choose Us?</Heading>
+                  <Heading mb={6} color={useColorModeValue('brand.500', 'white')}>Why Choose Us?</Heading>
                   <Stack spacing={4}>
                       <Box>
-                          <Text fontWeight={'bold'} fontSize={'lg'}>Certified Experts</Text>
-                          <Text color={'gray.600'}>Our team consists of licensed electricians and certified solar installers.</Text>
+                          <Text fontWeight={'bold'} fontSize={'lg'} color={useColorModeValue('brand.500', 'white')}>Certified Experts</Text>
+                          <Text color={useColorModeValue('gray.600', 'whiteAlpha.700')}>Our team consists of licensed electricians and certified solar installers.</Text>
                       </Box>
                       <Box>
-                          <Text fontWeight={'bold'} fontSize={'lg'}>Quality Guaranteed</Text>
-                          <Text color={'gray.600'}>We use only top-tier materials and back our work with comprehensive warranties.</Text>
+                          <Text fontWeight={'bold'} fontSize={'lg'} color={useColorModeValue('brand.500', 'white')}>Quality Guaranteed</Text>
+                          <Text color={useColorModeValue('gray.600', 'whiteAlpha.700')}>We use only top-tier materials and back our work with comprehensive warranties.</Text>
                       </Box>
                        <Box>
-                          <Text fontWeight={'bold'} fontSize={'lg'}>Customer Centric</Text>
-                          <Text color={'gray.600'}>We prioritize your needs and transparent communication throughout the project.</Text>
+                          <Text fontWeight={'bold'} fontSize={'lg'} color={useColorModeValue('brand.500', 'white')}>Customer Centric</Text>
+                          <Text color={useColorModeValue('gray.600', 'whiteAlpha.700')}>We prioritize your needs and transparent communication throughout the project.</Text>
                       </Box>
                   </Stack>
             </Box>
         </SimpleGrid>
 
-        <Box borderTopWidth={1} borderColor={'gray.200'} py={16} mb={10}>
-            <Heading textAlign={'center'} mb={12}>Our Impact</Heading>
+        <Box borderTopWidth={1} borderColor={useColorModeValue('gray.200', 'gray.700')} py={16} mb={10}>
+            <Heading textAlign={'center'} mb={12} color={useColorModeValue('brand.500', 'white')}>Our Impact</Heading>
             <SimpleGrid columns={{ base: 2, md: 4 }} spacing={10}>
                 <Stat label={'Installations'} value={'500+'} />
                 <Stat label={'Happy Clients'} value={'98%'} />
