@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <Flex
       w="full"
-      minH={{ base: "80vh", md: "95vh" }}
+      minH={{ base: "100vh", md: "95vh" }}
       bgImage={{
         base: `linear-gradient(to bottom, rgba(6, 13, 21, 0.8), rgba(27, 58, 95, 0.4)), url(${heroBanner})`,
         md: `linear-gradient(to right, rgba(6, 13, 21, 0.85), rgba(27, 58, 95, 0.3)), url(${heroBanner})`,
