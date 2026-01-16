@@ -240,12 +240,12 @@ const Packages = () => {
       price: 'From $2,500',
       idealFor: 'Larger homes with higher usage',
       features: [
-        '20 x 250W solar panels',
+        '6 x 450W solar panels',
         '5kW hybrid inverter',
         'Advanced monitoring & app',
-        'Battery storage ready',
+        '1 x 48v lithium battery',
         'Reduces bills by 60-80%',
-        '20-year warranty',
+        '12 months warranty',
       ],
       powers: [
         'Full 3–4 bedroom home (lights and plugs)',
@@ -263,9 +263,9 @@ const Packages = () => {
       price: 'From $2,700',
       idealFor: 'Small offices, shops and clinics',
       features: [
-        '32 x 250W solar panels',
+        '8 x 450W solar panels',
         '5.5kW hybrid inverter',
-        '1 x 24v 200ah Lithium iron Battery',
+        '1 x 48v 200ah Lithium iron Battery',
          'Mounting kits',
          'Accessories',
          'Automatic ChangeOver Switch',

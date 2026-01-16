@@ -172,7 +172,7 @@ const Home = () => {
               Projects we&apos;ve completed for clients like you
             </Heading>
             <Text fontSize={'md'} color={useColorModeValue('gray.600', 'whiteAlpha.800')} maxW={'2xl'} mx={{ base: 0, md: 'auto' }}>
-              A snapshot of some of the systems we&apos;ve recently installed in and around Mutare.
+              A snapshot of some of the systems we&apos;ve recently installed:
             </Text>
           </Stack>
 

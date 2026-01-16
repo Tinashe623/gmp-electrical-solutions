@@ -1,9 +1,24 @@
 import React from 'react';
-import { Box, Container, Stack, Text, SimpleGrid, useColorModeValue, Icon, Flex } from '@chakra-ui/react';
+import { Box, Container, Stack, Text, SimpleGrid, useColorModeValue, Icon, Flex, useToast } from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
+  const toast = useToast();
+
+  const handleNotice = (e, label) => {
+    if (e) e.preventDefault();
+    toast({
+      title: 'Coming Soon',
+      description: `${label} is currently under development as part of our site construction.`,
+      status: 'info',
+      duration: 5000,
+      isClosable: true,
+      position: 'bottom-right',
+      variant: 'subtle',
+    });
+  };
+
   return (
     <Box
       bg={'brand.900'} // Deep Navy Blue
@@ -35,10 +50,10 @@ const Footer = () => {
               </Text>
             </Box>
             <Stack direction={'row'} spacing={4}>
-                <SocialButton label={'Facebook'} href={'#'}><FaFacebook /></SocialButton>
-                <SocialButton label={'Twitter'} href={'#'}><FaTwitter /></SocialButton>
-                <SocialButton label={'Instagram'} href={'#'}><FaInstagram /></SocialButton>
-                <SocialButton label={'LinkedIn'} href={'#'}><FaLinkedin /></SocialButton>
+                <SocialButton label={'Facebook'} onClick={(e) => handleNotice(e, 'Our Facebook page')}><FaFacebook /></SocialButton>
+                <SocialButton label={'Twitter'} onClick={(e) => handleNotice(e, 'Our Twitter profile')}><FaTwitter /></SocialButton>
+                <SocialButton label={'Instagram'} onClick={(e) => handleNotice(e, 'Our Instagram profile')}><FaInstagram /></SocialButton>
+                <SocialButton label={'LinkedIn'} onClick={(e) => handleNotice(e, 'Our LinkedIn profile')}><FaLinkedin /></SocialButton>
             </Stack>
           </Stack>
 
@@ -66,7 +81,7 @@ const Footer = () => {
           <Stack align={'flex-start'}>
             <Text fontWeight={'700'} fontSize={'lg'} mb={2} color={'secondary.500'}>Contact Us</Text>
             <Text fontWeight="600" color="white">Head Office</Text>
-            <Text>St James Zongoro</Text>
+            <Text>St Jamses Zongoro</Text>
             <Text mb={2}>313 Mutare</Text>
             
             <Text fontWeight="600" color="white" mt={2}>Get in Touch</Text>
@@ -97,8 +112,8 @@ const Footer = () => {
                 © {new Date().getFullYear()} G.M.P Electrical. All rights reserved.
                 </Text>
                 <Stack direction={'row'} spacing={6} mt={{ base: 4, md: 0 }}>
-                    <Link to="#">Privacy Policy</Link>
-                    <Link to="#">Terms of Service</Link>
+                    {/* <FooterLink label="Privacy Policy" onClick={(e) => handleNotice(e, 'Privacy Policy')} />
+                    <FooterLink label="Terms of Service" onClick={(e) => handleNotice(e, 'Terms of Service')} /> */}
                 </Stack>
             </Flex>
           </Container>
@@ -106,6 +121,23 @@ const Footer = () => {
     </Box>
   );
 };
+
+const FooterLink = ({ label, onClick }) => (
+    <Text 
+      as="button"
+      onClick={onClick}
+      color={'gray.400'}
+      transition={'all 0.3s ease'}
+      fontSize={'sm'}
+      _hover={{ 
+        color: 'secondary.500',
+        textDecoration: 'none',
+        transform: 'translateX(4px)',
+      }}
+    >
+        {label}
+    </Text>
+);
 
 const Link = ({ children, to }) => (
     <Text 
@@ -124,11 +156,11 @@ const Link = ({ children, to }) => (
     </Text>
 );
 
-const SocialButton = ({ children, label, href }) => {
+const SocialButton = ({ children, label, onClick }) => {
   return (
     <Box
-      as="a"
-      href={href}
+      as="button"
+      onClick={onClick}
       display={'inline-flex'}
       alignItems={'center'}
       justifyContent={'center'}
