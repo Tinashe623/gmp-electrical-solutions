@@ -4,7 +4,7 @@ A responsive marketing site for a solar and electrical contractor, built with Re
 
 ## Live Demo
 
-- Production: https://gmp-electrical.netlify.app/
+
 ## Tech Stack
 
 - **Frontend:** React, React Router
