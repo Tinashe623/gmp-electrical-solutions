@@ -11,6 +11,28 @@ const Navbar = () => {
     const [scrolled, setScrolled] = React.useState(false);
     const [isMobileLandscape] = useMediaQuery('(max-height: 500px)');
 
+    // Treat tablets (md) as "mobile" so the nav doesn't overflow.
+    // Chakra defaults: md=48em (768px), lg=62em (992px)
+    const showDesktopNav = useBreakpointValue({ base: false, lg: true });
+
+    // Hoist hook calls so we don't call hooks inside conditionals/expressions.
+    const navBorderColor = useColorModeValue('gray.100', 'gray.800');
+    const navBgScrolled = useColorModeValue('whiteAlpha.800', 'gray.900');
+    const navBgTop = useColorModeValue('white', 'gray.800');
+    const navBg = useBreakpointValue({
+      base: '#1a202c',
+      md: scrolled ? navBgScrolled : navBgTop,
+    });
+    const navBackdropFilter = useBreakpointValue({
+      base: 'none',
+      md: scrolled ? 'blur(10px)' : 'none',
+    });
+
+    const logoFilter = useColorModeValue(
+      'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))',
+      'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
+    );
+
     React.useEffect(() => {
       const handleScroll = () => {
         setScrolled(window.scrollY > 20);
@@ -25,16 +47,11 @@ const Navbar = () => {
       position="sticky"
       top={0}
       zIndex={100}
-      bg={useBreakpointValue({
-        base: '#1a202c',
-        md: scrolled
-          ? useColorModeValue('whiteAlpha.800', 'gray.900')
-          : useColorModeValue('white', 'gray.800'),
-      })}
-      backdropFilter={useBreakpointValue({ base: 'none', md: scrolled ? 'blur(10px)' : 'none' })}
+      bg={navBg}
+      backdropFilter={navBackdropFilter}
       boxShadow={scrolled ? 'lg' : 'sm'}
       borderBottom="1px"
-      borderColor={useColorModeValue('gray.100', 'gray.800')}
+      borderColor={navBorderColor}
       transition="all 0.3s ease"
     >
       {/* Skip to content link for accessibility */}
@@ -57,41 +74,51 @@ const Navbar = () => {
         Skip to content
       </Box>
       <Container maxW="container.xl">
-        <Flex minH={isMobileLandscape ? '60px' : { base: '70px', md: '90px' }} align={'center'} justify={'space-between'}>
+        <Flex
+          minH={isMobileLandscape ? '60px' : { base: '70px', md: '80px', lg: '90px' }}
+          align={'center'}
+          justify={'space-between'}
+          gap={{ base: 2, md: 4 }}
+        >
           <Flex 
             as={RouterLink}
             to="/"
             align={'center'} 
-            gap={4}
+            gap={{ base: 3, md: 4 }}
             _hover={{ transform: 'scale(1.05)', transition: 'transform 0.2s' }}
             cursor={'pointer'}
           >
             <Image 
               src={logo} 
               alt="G.M.P Electrical Logo" 
-              h={isMobileLandscape ? '40px' : { base: '48px', md: '100px' }}
+              h={isMobileLandscape ? '40px' : { base: '48px', md: '64px', lg: '100px' }}
               w={'auto'}
               objectFit={'contain'}
               transition={'all 0.3s ease'}
-              filter={useColorModeValue('drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))', 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))')}
+              filter={logoFilter}
               _hover={{
                 filter: 'drop-shadow(0 6px 12px rgba(27, 58, 95, 0.3))',
                 transform: 'scale(1.02)',
               }}
             />
             <Text
-              fontSize={{ base: 'lg', md: '2xl' }}
+              fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
               fontWeight={'800'}
               letterSpacing={'tight'}
               bgGradient="linear(to-r, brand.500, brand.600)"
               bgClip="text"
               display={{ base: 'inline-block', sm: 'inline-block' }}
+              whiteSpace={{ base: 'normal', sm: 'nowrap' }}
             >
               G.M.P<Text as="span" bgGradient="linear(to-r, secondary.500, secondary.600)" bgClip="text"> Electrical</Text>
             </Text>
           </Flex>
 
-          <Stack direction={'row'} spacing={8} display={isMobileLandscape ? 'none' : { base: 'none', md: 'flex' }}>
+          <Stack
+            direction={'row'}
+            spacing={{ lg: 6, xl: 8 }}
+            display={isMobileLandscape ? 'none' : showDesktopNav ? 'flex' : 'none'}
+          >
             <Navlink to="/" isActive={location.pathname === '/'}>Home</Navlink>
             <Navlink to="/services" isActive={location.pathname === '/services'}>Services</Navlink>
             <Navlink to="/packages" isActive={location.pathname === '/packages'}>Packages</Navlink>
@@ -99,7 +126,11 @@ const Navbar = () => {
             <Navlink to="/contact" isActive={location.pathname === '/contact'}>Contact</Navlink>
           </Stack>
 
-          <Stack direction={'row'} spacing={4} display={isMobileLandscape ? 'none' : { base: 'none', md: 'flex' }}>
+          <Stack
+            direction={'row'}
+            spacing={4}
+            display={isMobileLandscape ? 'none' : showDesktopNav ? 'flex' : 'none'}
+          >
               <Button 
                 as={RouterLink} 
                 to="/contact" 
@@ -117,7 +148,7 @@ const Navbar = () => {
           </Stack>
           
            <IconButton
-            display={isMobileLandscape ? 'flex' : { base: 'flex', md: 'none' }}
+            display={isMobileLandscape ? 'flex' : showDesktopNav ? 'none' : 'flex'}
             ref={btnRef}
             onClick={onOpen}
             icon={<HamburgerIcon />}
@@ -199,37 +230,46 @@ const Navbar = () => {
   );
 };
 
-const Navlink = ({ to, children, isActive, ...props }) => (
+const Navlink = ({ to, children, isActive, ...props }) => {
+  const activeColor = useColorModeValue('brand.600', 'brand.300');
+  const inactiveColor = useColorModeValue('gray.600', 'whiteAlpha.900');
+  const underlineGradient = useColorModeValue(
+    'linear(to-r, brand.500, accent.500)',
+    'linear(to-r, brand.300, accent.300)',
+  );
+
+  return (
     <Text
-        as={RouterLink}
-        to={to}
-        fontWeight={isActive ? "700" : "500"}
-        color={isActive ? useColorModeValue('brand.600', 'brand.300') : useColorModeValue('gray.600', 'whiteAlpha.900')}
-        position="relative"
-        _hover={{ 
-          color: useColorModeValue('brand.600', 'brand.300'), 
-          textDecoration: 'none',
-        }}
-        _after={{
-          content: '""',
-          position: 'absolute',
-          bottom: '-4px',
-          left: 0,
-          width: isActive ? '100%' : '0%',
-          height: '2px',
-          bgGradient: useColorModeValue('linear(to-r, brand.500, accent.500)', 'linear(to-r, brand.300, accent.300)'),
-          transition: 'width 0.3s ease',
-        }}
-        sx={{
-          '&:hover::after': {
-            width: '100%',
-          }
-        }}
-        transition="all 0.3s ease"
-        {...props}
+      as={RouterLink}
+      to={to}
+      fontWeight={isActive ? "700" : "500"}
+      color={isActive ? activeColor : inactiveColor}
+      position="relative"
+      _hover={{
+        color: activeColor,
+        textDecoration: 'none',
+      }}
+      _after={{
+        content: '""',
+        position: 'absolute',
+        bottom: '-4px',
+        left: 0,
+        width: isActive ? '100%' : '0%',
+        height: '2px',
+        bgGradient: underlineGradient,
+        transition: 'width 0.3s ease',
+      }}
+      sx={{
+        '&:hover::after': {
+          width: '100%',
+        },
+      }}
+      transition="all 0.3s ease"
+      {...props}
     >
-        {children}
+      {children}
     </Text>
-)
+  );
+}
 
 export default Navbar;
