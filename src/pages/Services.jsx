@@ -34,6 +34,8 @@ const ServiceSection = ({
   imageSrc,
   reversed,
 }) => {
+  const listItemColor = useColorModeValue("gray.700", "whiteAlpha.900");
+
   return (
     <Container maxW={"container.xl"} py={12}>
       <SimpleGrid
@@ -55,7 +57,7 @@ const ServiceSection = ({
             {features.map((feature, index) => (
               <ListItem
                 key={index}
-                color={useColorModeValue("gray.700", "whiteAlpha.900")}
+                color={listItemColor}
               >
                 <ListIcon as={CheckCircleIcon} color="accent.500" />
                 {feature}
