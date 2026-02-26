@@ -51,10 +51,6 @@ const theme = extendTheme({
   },
   styles: {
     global: (props) => ({
-      '@keyframes float': {
-        '0%, 100%': { transform: 'translateY(0px)' },
-        '50%': { transform: 'translateY(-10px)' },
-      },
       '@keyframes fadeInUp': {
         from: { opacity: 0, transform: 'translateY(30px)' },
         to: { opacity: 1, transform: 'translateY(0)' },
@@ -62,10 +58,6 @@ const theme = extendTheme({
       '@keyframes scrollDot': {
         '0%, 100%': { transform: 'translateY(0)', opacity: 1 },
         '50%': { transform: 'translateY(10px)', opacity: 0.6 },
-      },
-      '@keyframes dividerWave': {
-        '0%, 100%': { transform: 'translateY(0)' },
-        '50%': { transform: 'translateY(6px)' },
       },
       body: {
         bg: props.colorMode === 'dark' ? 'gray.900' : 'gray.50',
@@ -77,9 +69,6 @@ const theme = extendTheme({
       },
       '.scroll-vertical': {
         animation: 'scrollDot 1.5s ease-in-out infinite',
-      },
-      '.animate-float': {
-        animation: 'float 3s ease-in-out infinite',
       },
       '.animate-fade-in-up': {
         animation: 'fadeInUp 0.6s ease-out forwards',
@@ -142,11 +131,7 @@ const theme = extendTheme({
     },
   },
   shadows: {
-    glass: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
-    'glass-lg': '0 8px 32px 0 rgba(31, 38, 135, 0.25)',
-    glow: '0 0 20px rgba(27, 58, 95, 0.4)',
-    'glow-orange': '0 0 20px rgba(255, 140, 0, 0.4)',
-    'glow-green': '0 0 20px rgba(16, 185, 129, 0.4)',
+    outline: '0 0 0 3px rgba(27, 58, 95, 0.6)',
   },
 });
 

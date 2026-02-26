@@ -1,45 +1,66 @@
-import React from 'react';
-import { Box, Flex, Text, Button, Stack, useColorModeValue, useBreakpointValue, Container, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Image, useMediaQuery } from '@chakra-ui/react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { HamburgerIcon } from '@chakra-ui/icons';
-import logo from '../assets/images/logo.png';
+import React from "react";
+import {
+  Box,
+  Flex,
+  Text,
+  Button,
+  Stack,
+  useColorModeValue,
+  useBreakpointValue,
+  Container,
+  IconButton,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  Image,
+  useMediaQuery,
+} from "@chakra-ui/react";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const btnRef = React.useRef();
-    const location = useLocation();
-    const [scrolled, setScrolled] = React.useState(false);
-    const [isMobileLandscape] = useMediaQuery('(max-height: 500px)');
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+  const location = useLocation();
+  const [scrolled, setScrolled] = React.useState(false);
+  const [isMobileLandscape] = useMediaQuery("(max-height: 500px)");
 
-    // Treat tablets (md) as "mobile" so the nav doesn't overflow.
-    // Chakra defaults: md=48em (768px), lg=62em (992px)
-    const showDesktopNav = useBreakpointValue({ base: false, lg: true });
+  // Show desktop nav on tablet (md) and desktop (lg)
+  // Chakra defaults: md=48em (768px), lg=62em (992px)
+  const showDesktopNav = useBreakpointValue({ base: false, md: true });
 
-    // Hoist hook calls so we don't call hooks inside conditionals/expressions.
-    const navBorderColor = useColorModeValue('gray.100', 'gray.800');
-    const navBgScrolled = useColorModeValue('whiteAlpha.800', 'gray.900');
-    const navBgTop = useColorModeValue('white', 'gray.800');
-    const navBg = useBreakpointValue({
-      base: '#1a202c',
-      md: scrolled ? navBgScrolled : navBgTop,
-    });
-    const navBackdropFilter = useBreakpointValue({
-      base: 'none',
-      md: scrolled ? 'blur(10px)' : 'none',
-    });
+  // Hoist hook calls so we don't call hooks inside conditionals/expressions.
+  const navBorderColor = useColorModeValue("gray.100", "gray.800");
+  const navBgScrolled = useColorModeValue("whiteAlpha.800", "gray.900");
+  const navBgTop = useColorModeValue("white", "gray.800");
+  // Navbar background - consistent across mobile and desktop
+  const navBg = useBreakpointValue({
+    base: scrolled ? navBgScrolled : navBgTop,
+    md: scrolled ? navBgScrolled : navBgTop,
+  });
+  // Navbar backdrop filter - blur effect when scrolled
+  const navBackdropFilter = useBreakpointValue({
+    base: scrolled ? "blur(10px)" : "none",
+    md: scrolled ? "blur(10px)" : "none",
+  });
 
-    const logoFilter = useColorModeValue(
-      'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))',
-      'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
-    );
+  const logoFilter = useColorModeValue(
+    "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
+    "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))",
+  );
 
-    React.useEffect(() => {
-      const handleScroll = () => {
-        setScrolled(window.scrollY > 20);
-      };
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Box
@@ -49,7 +70,7 @@ const Navbar = () => {
       zIndex={100}
       bg={navBg}
       backdropFilter={navBackdropFilter}
-      boxShadow={scrolled ? 'lg' : 'sm'}
+      boxShadow={scrolled ? "lg" : "sm"}
       borderBottom="1px"
       borderColor={navBorderColor}
       transition="all 0.3s ease"
@@ -67,88 +88,142 @@ const Navbar = () => {
         py={2}
         rounded="md"
         _focus={{
-          left: '10px',
-          top: '10px',
+          left: "10px",
+          top: "10px",
         }}
       >
         Skip to content
       </Box>
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" px={{ base: 4, md: 6 }}>
         <Flex
-          minH={isMobileLandscape ? '60px' : { base: '70px', md: '80px', lg: '90px' }}
-          align={'center'}
-          justify={'space-between'}
-          gap={{ base: 2, md: 4 }}
+          minH={
+            isMobileLandscape
+              ? "60px"
+              : { base: "70px", md: "70px", lg: "90px" }
+          }
+          align={"center"}
+          justify={"space-between"}
+          gap={{ base: 2, md: 3 }}
         >
-          <Flex 
+          <Flex
             as={RouterLink}
             to="/"
-            align={'center'} 
-            gap={{ base: 3, md: 4 }}
-            _hover={{ transform: 'scale(1.05)', transition: 'transform 0.2s' }}
-            cursor={'pointer'}
+            align={"center"}
+            gap={{ base: 2, md: 2 }}
+            _hover={{ transform: "scale(1.05)", transition: "transform 0.2s" }}
+            cursor={"pointer"}
           >
-            <Image 
-              src={logo} 
-              alt="G.M.P Electrical Logo" 
-              h={isMobileLandscape ? '40px' : { base: '48px', md: '64px', lg: '100px' }}
-              w={'auto'}
-              objectFit={'contain'}
-              transition={'all 0.3s ease'}
+            <Image
+              src={logo}
+              alt="G.M.P Electrical Logo"
+              h={
+                isMobileLandscape
+                  ? "40px"
+                  : { base: "40px", md: "50px", lg: "100px" }
+              }
+              w={"auto"}
+              objectFit={"contain"}
+              transition={"all 0.3s ease"}
               filter={logoFilter}
               _hover={{
-                filter: 'drop-shadow(0 6px 12px rgba(27, 58, 95, 0.3))',
-                transform: 'scale(1.02)',
+                filter: "drop-shadow(0 6px 12px rgba(27, 58, 95, 0.3))",
+                transform: "scale(1.02)",
               }}
             />
             <Text
-              fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-              fontWeight={'800'}
-              letterSpacing={'tight'}
+              fontSize={{ base: "md", md: "lg", lg: "xl" }}
+              fontWeight={"800"}
+              letterSpacing={"tight"}
               bgGradient="linear(to-r, brand.500, brand.600)"
               bgClip="text"
-              display={{ base: 'inline-block', sm: 'inline-block' }}
-              whiteSpace={{ base: 'normal', sm: 'nowrap' }}
+              whiteSpace="nowrap"
+              display={{ base: "none", lg: "inline-block" }}
             >
-              G.M.P<Text as="span" bgGradient="linear(to-r, secondary.500, secondary.600)" bgClip="text"> Electrical</Text>
+              G.MUNDIETA
+              <Text
+                as="span"
+                bgGradient="linear(to-r, secondary.500, secondary.600)"
+                bgClip="text"
+                display={{ base: "none", lg: "inline-block" }}
+              >
+                {" "}
+                Electrical
+              </Text>
+            </Text>
+            {/* Compact logo text for tablet */}
+            <Text
+              fontSize={{ base: "md", md: "lg" }}
+              fontWeight={"800"}
+              letterSpacing={"tight"}
+              bgGradient="linear(to-r, brand.500, brand.600)"
+              bgClip="text"
+              whiteSpace="nowrap"
+              display={{ base: "none", md: "inline-block", lg: "none" }}
+            >
+              G.MUNDIETA
             </Text>
           </Flex>
 
           <Stack
-            direction={'row'}
-            spacing={{ lg: 6, xl: 8 }}
-            display={isMobileLandscape ? 'none' : showDesktopNav ? 'flex' : 'none'}
+            direction={"row"}
+            spacing={{ base: 1, md: 2, lg: 4 }}
+            display={
+              isMobileLandscape ? "none" : showDesktopNav ? "flex" : "none"
+            }
+            flexWrap="nowrap"
+            alignItems="center"
           >
-            <Navlink to="/" isActive={location.pathname === '/'}>Home</Navlink>
-            <Navlink to="/services" isActive={location.pathname === '/services'}>Services</Navlink>
-            <Navlink to="/packages" isActive={location.pathname === '/packages'}>Packages</Navlink>
-            <Navlink to="/about" isActive={location.pathname === '/about'}>About Us</Navlink>
-            <Navlink to="/contact" isActive={location.pathname === '/contact'}>Contact</Navlink>
+            <Navlink to="/" isActive={location.pathname === "/"}>
+              Home
+            </Navlink>
+            <Navlink
+              to="/services"
+              isActive={location.pathname === "/services"}
+            >
+              Services
+            </Navlink>
+            <Navlink
+              to="/packages"
+              isActive={location.pathname === "/packages"}
+            >
+              Packages
+            </Navlink>
+            <Navlink to="/about" isActive={location.pathname === "/about"}>
+              About Us
+            </Navlink>
+            <Navlink to="/contact" isActive={location.pathname === "/contact"}>
+              Contact
+            </Navlink>
           </Stack>
 
           <Stack
-            direction={'row'}
-            spacing={4}
-            display={isMobileLandscape ? 'none' : showDesktopNav ? 'flex' : 'none'}
+            direction={"row"}
+            spacing={{ base: 2, md: 3, lg: 4 }}
+            display={
+              isMobileLandscape ? "none" : showDesktopNav ? "flex" : "none"
+            }
           >
-              <Button 
-                as={RouterLink} 
-                to="/contact" 
-                colorScheme="brand" 
-                size="md"
-                bgGradient="linear(to-r, brand.500, brand.600)"
-                _hover={{
-                  bgGradient: "linear(to-r, brand.600, brand.700)",
-                  transform: "translateY(-2px)",
-                  boxShadow: "0 6px 20px 0 rgba(0, 102, 255, 0.5)",
-                }}
-              >
-                  Get a Quote
-              </Button>
+            <Button
+              as={RouterLink}
+              to="/contact"
+              colorScheme="brand"
+              size="sm"
+              px={4}
+              bgGradient="linear(to-r, brand.500, brand.600)"
+              _hover={{
+                bgGradient: "linear(to-r, brand.600, brand.700)",
+                transform: "translateY(-2px)",
+                boxShadow: "0 6px 20px 0 rgba(0, 102, 255, 0.5)",
+              }}
+            >
+              Get a Quote
+            </Button>
           </Stack>
-          
-           <IconButton
-            display={isMobileLandscape ? 'flex' : showDesktopNav ? 'none' : 'flex'}
+
+          <IconButton
+            display={
+              isMobileLandscape ? "flex" : showDesktopNav ? "none" : "flex"
+            }
             ref={btnRef}
             onClick={onOpen}
             icon={<HamburgerIcon />}
@@ -158,8 +233,8 @@ const Navbar = () => {
           />
         </Flex>
       </Container>
-      
-       <Drawer
+
+      <Drawer
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
@@ -172,56 +247,101 @@ const Navbar = () => {
 
           <DrawerBody>
             <Stack spacing={4} mt={4}>
-                 <Box 
-                   animation={'fadeInUp 0.3s ease-out forwards'}
-                   style={{ animationDelay: '0.1s', opacity: 0 }}
-                 >
-                   <Navlink to="/" onClick={onClose} isActive={location.pathname === '/'} fontSize="xl" py={2} display="block">Home</Navlink>
-                 </Box>
-                 <Box 
-                   animation={'fadeInUp 0.3s ease-out forwards'}
-                   style={{ animationDelay: '0.2s', opacity: 0 }}
-                 >
-                   <Navlink to="/services" onClick={onClose} isActive={location.pathname === '/services'} fontSize="xl" py={2} display="block">Services</Navlink>
-                 </Box>
-                 <Box 
-                   animation={'fadeInUp 0.3s ease-out forwards'}
-                   style={{ animationDelay: '0.3s', opacity: 0 }}
-                 >
-                   <Navlink to="/packages" onClick={onClose} isActive={location.pathname === '/packages'} fontSize="xl" py={2} display="block">Packages</Navlink>
-                 </Box>
-                 <Box 
-                   animation={'fadeInUp 0.3s ease-out forwards'}
-                   style={{ animationDelay: '0.4s', opacity: 0 }}
-                 >
-                   <Navlink to="/about" onClick={onClose} isActive={location.pathname === '/about'} fontSize="xl" py={2} display="block">About Us</Navlink>
-                 </Box>
-                 <Box 
-                   animation={'fadeInUp 0.3s ease-out forwards'}
-                   style={{ animationDelay: '0.5s', opacity: 0 }}
-                 >
-                   <Navlink to="/contact" onClick={onClose} isActive={location.pathname === '/contact'} fontSize="xl" py={2} display="block">Contact</Navlink>
-                 </Box>
-                 <Box 
-                   animation={'fadeInUp 0.3s ease-out forwards'}
-                   style={{ animationDelay: '0.6s', opacity: 0 }}
-                 >
-                   <Button 
-                    as={RouterLink} 
-                    to="/contact" 
-                    colorScheme="brand" 
-                    width="full" 
-                    onClick={onClose}
-                    bgGradient="linear(to-r, brand.500, brand.600)"
-                    _hover={{
-                      bgGradient: "linear(to-r, brand.600, brand.700)",
-                    }}
-                    size="lg"
-                    fontSize="lg"
-                  >
-                    Get a Quote
+              <Box
+                animation={"fadeInUp 0.3s ease-out forwards"}
+                style={{ animationDelay: "0.1s", opacity: 0 }}
+              >
+                <Navlink
+                  to="/"
+                  onClick={onClose}
+                  isActive={location.pathname === "/"}
+                  fontSize="xl"
+                  py={2}
+                  display="block"
+                >
+                  Home
+                </Navlink>
+              </Box>
+              <Box
+                animation={"fadeInUp 0.3s ease-out forwards"}
+                style={{ animationDelay: "0.2s", opacity: 0 }}
+              >
+                <Navlink
+                  to="/services"
+                  onClick={onClose}
+                  isActive={location.pathname === "/services"}
+                  fontSize="xl"
+                  py={2}
+                  display="block"
+                >
+                  Services
+                </Navlink>
+              </Box>
+              <Box
+                animation={"fadeInUp 0.3s ease-out forwards"}
+                style={{ animationDelay: "0.3s", opacity: 0 }}
+              >
+                <Navlink
+                  to="/packages"
+                  onClick={onClose}
+                  isActive={location.pathname === "/packages"}
+                  fontSize="xl"
+                  py={2}
+                  display="block"
+                >
+                  Packages
+                </Navlink>
+              </Box>
+              <Box
+                animation={"fadeInUp 0.3s ease-out forwards"}
+                style={{ animationDelay: "0.4s", opacity: 0 }}
+              >
+                <Navlink
+                  to="/about"
+                  onClick={onClose}
+                  isActive={location.pathname === "/about"}
+                  fontSize="xl"
+                  py={2}
+                  display="block"
+                >
+                  About Us
+                </Navlink>
+              </Box>
+              <Box
+                animation={"fadeInUp 0.3s ease-out forwards"}
+                style={{ animationDelay: "0.5s", opacity: 0 }}
+              >
+                <Navlink
+                  to="/contact"
+                  onClick={onClose}
+                  isActive={location.pathname === "/contact"}
+                  fontSize="xl"
+                  py={2}
+                  display="block"
+                >
+                  Contact
+                </Navlink>
+              </Box>
+              <Box
+                animation={"fadeInUp 0.3s ease-out forwards"}
+                style={{ animationDelay: "0.6s", opacity: 0 }}
+              >
+                <Button
+                  as={RouterLink}
+                  to="/contact"
+                  colorScheme="brand"
+                  width="full"
+                  onClick={onClose}
+                  bgGradient="linear(to-r, brand.500, brand.600)"
+                  _hover={{
+                    bgGradient: "linear(to-r, brand.600, brand.700)",
+                  }}
+                  size="lg"
+                  fontSize="lg"
+                >
+                  Get a Quote
                 </Button>
-                 </Box>
+              </Box>
             </Stack>
           </DrawerBody>
         </DrawerContent>
@@ -231,11 +351,11 @@ const Navbar = () => {
 };
 
 const Navlink = ({ to, children, isActive, ...props }) => {
-  const activeColor = useColorModeValue('brand.600', 'brand.300');
-  const inactiveColor = useColorModeValue('gray.600', 'whiteAlpha.900');
+  const activeColor = useColorModeValue("brand.600", "brand.300");
+  const inactiveColor = useColorModeValue("gray.600", "whiteAlpha.900");
   const underlineGradient = useColorModeValue(
-    'linear(to-r, brand.500, accent.500)',
-    'linear(to-r, brand.300, accent.300)',
+    "linear(to-r, brand.500, secondary.500)",
+    "linear(to-r, brand.300, secondary.300)",
   );
 
   return (
@@ -243,25 +363,27 @@ const Navlink = ({ to, children, isActive, ...props }) => {
       as={RouterLink}
       to={to}
       fontWeight={isActive ? "700" : "500"}
+      fontSize={{ base: "sm", md: "xs", lg: "md" }}
       color={isActive ? activeColor : inactiveColor}
       position="relative"
+      whiteSpace="nowrap"
       _hover={{
         color: activeColor,
-        textDecoration: 'none',
+        textDecoration: "none",
       }}
       _after={{
         content: '""',
-        position: 'absolute',
-        bottom: '-4px',
+        position: "absolute",
+        bottom: "-4px",
         left: 0,
-        width: isActive ? '100%' : '0%',
-        height: '2px',
+        width: isActive ? "100%" : "0%",
+        height: "2px",
         bgGradient: underlineGradient,
-        transition: 'width 0.3s ease',
+        transition: "width 0.3s ease",
       }}
       sx={{
-        '&:hover::after': {
-          width: '100%',
+        "&:hover::after": {
+          width: "100%",
         },
       }}
       transition="all 0.3s ease"
@@ -270,6 +392,6 @@ const Navlink = ({ to, children, isActive, ...props }) => {
       {children}
     </Text>
   );
-}
+};
 
 export default Navbar;

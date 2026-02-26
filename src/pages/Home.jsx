@@ -10,20 +10,20 @@ import solar4 from '../assets/images/solar4.jpg';
 const Feature = ({ title, text, icon }) => {
   return (
     <Stack
-        bg={useColorModeValue('white', 'gray.800')}
-        p={8}
-        rounded={'2xl'}
-        align={'center'}
-        pos={'relative'}
-        boxShadow={'xl'}
-        borderWidth={'1px'}
-        borderColor={useColorModeValue('gray.50', 'gray.700')}
-        _hover={{ 
-          transform: 'translateY(-8px)',
-          boxShadow: '0 20px 40px rgba(27, 58, 95, 0.1)',
-          borderColor: 'brand.100',
-        }}
-        transition={'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'}
+      bg={useColorModeValue('white', 'gray.800')}
+      p={8}
+      rounded={'2xl'}
+      align={'center'}
+      pos={'relative'}
+      boxShadow={'xl'}
+      borderWidth={'1px'}
+      borderColor={useColorModeValue('gray.50', 'gray.700')}
+      _hover={{
+        transform: 'translateY(-8px)',
+        boxShadow: '0 20px 40px rgba(27, 58, 95, 0.1)',
+        borderColor: 'brand.100',
+      }}
+      transition={'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'}
     >
       <Flex
         w={16}
@@ -49,26 +49,77 @@ const Feature = ({ title, text, icon }) => {
   );
 };
 
+const TestimonialCard = ({ name, location, text }) => {
+  return (
+    <Stack
+      bg={useColorModeValue('white', 'gray.800')}
+      p={8}
+      rounded={'2xl'}
+      boxShadow={'xl'}
+      borderWidth={'1px'}
+      borderColor={useColorModeValue('gray.100', 'gray.700')}
+      spacing={4}
+      transition={'all 0.3s ease'}
+      _hover={{
+        transform: 'translateY(-4px)',
+        boxShadow: '0 12px 30px rgba(27, 58, 95, 0.15)',
+      }}
+    >
+      <Text
+        color={useColorModeValue('gray.600', 'whiteAlpha.800')}
+        fontSize={'lg'}
+        fontStyle={'italic'}
+        lineHeight={'tall'}
+      >
+        "{text}"
+      </Text>
+      <Stack direction={'row'} spacing={3} align={'center'} pt={2}>
+        <Flex
+          w={12}
+          h={12}
+          align={'center'}
+          justify={'center'}
+          color={'white'}
+          rounded={'full'}
+          bgGradient={'linear(to-br, secondary.400, secondary.600)'}
+          fontWeight={'bold'}
+          fontSize={'lg'}
+        >
+          {name.charAt(0)}
+        </Flex>
+        <Box>
+          <Text fontWeight={'700'} color={useColorModeValue('gray.800', 'white')}>
+            {name}
+          </Text>
+          <Text fontSize={'sm'} color={useColorModeValue('gray.500', 'whiteAlpha.600')}>
+            {location}
+          </Text>
+        </Box>
+      </Stack>
+    </Stack>
+  );
+};
+
 const Home = () => {
   return (
     <Box id="main-content">
       <Box position="relative">
         <Hero />
       </Box>
-      
+
       <Container maxW={'container.xl'} py={20}>
-         <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'} mb={16}>
-            <Heading 
-              fontSize={'4xl'} 
-              fontWeight={'800'}
-              color={useColorModeValue('brand.500', 'white')}
-            >
-              Modern Solar & Electrical Solutions
-            </Heading>
-            <Text color={useColorModeValue('gray.600', 'whiteAlpha.800')} fontSize={'xl'} lineHeight={'tall'}>
-              From rooftop solar and backup power to safe wiring and neat conduit work, we design, install, and maintain systems that keep your home or business powered every day.
-            </Text>
-          </Stack>
+        <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'} mb={16}>
+          <Heading
+            fontSize={'4xl'}
+            fontWeight={'800'}
+            color={useColorModeValue('brand.500', 'white')}
+          >
+            Modern Solar & Electrical Solutions
+          </Heading>
+          <Text color={useColorModeValue('gray.600', 'whiteAlpha.800')} fontSize={'xl'} lineHeight={'tall'}>
+            From rooftop solar and backup power to safe wiring and neat conduit work, we design, install, and maintain systems that keep your home or business powered every day.
+          </Text>
+        </Stack>
 
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           <Feature
@@ -86,7 +137,7 @@ const Home = () => {
             }
           />
           <Feature
-             icon={<Icon as={FaBolt} w={10} h={10} />}
+            icon={<Icon as={FaBolt} w={10} h={10} />}
             title={'Electrical Installations'}
             text={
               'New builds, renovations, fault finding, and repairs handled by experienced, licensed electricians with a focus on safety and quality.'
@@ -327,41 +378,83 @@ const Home = () => {
           bgImage={'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'}
           opacity={0.5}
         />
-        
+
         <Container maxW={'container.xl'} position={'relative'} zIndex={2}>
           <Stack spacing={8} textAlign={'center'} align={'center'} maxW={'3xl'} mx={'auto'}>
-              <Heading 
-                color={'white'} 
-                fontSize={{ base: '3xl', md: '5xl' }} 
-                fontWeight={'800'}
-              >
-                  Ready to Switch to Solar?
-              </Heading>
-              <Text fontSize={'xl'} color={'whiteAlpha.900'} lineHeight={'tall'}>
-                  Join hundreds of satisfied homeowners who have taken control of their energy production. Contact us today for a free consultation.
-              </Text>
-              <Button
-                  as={RouterLink}
-                  to="/contact"
-                  size={'lg'}
-                  h={'56px'}
-                  px={10}
-                  bg={'secondary.500'}
-                  color={'white'}
-                  rounded={'full'}
-                  fontSize={'lg'}
-                  fontWeight={'700'}
-                  boxShadow={'0 8px 30px rgba(245, 166, 35, 0.3)'}
-                  _hover={{ 
-                    bg: 'secondary.600',
-                    transform: 'translateY(-4px)',
-                    boxShadow: '0 12px 40px rgba(245, 166, 35, 0.4)',
-                  }}
-                  transition={'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}
-              >
-                  Get Started Now
-              </Button>
+            <Heading
+              color={'white'}
+              fontSize={{ base: '3xl', md: '5xl' }}
+              fontWeight={'800'}
+            >
+              Ready to Switch to Solar?
+            </Heading>
+            <Text fontSize={'xl'} color={'whiteAlpha.900'} lineHeight={'tall'}>
+              Join hundreds of satisfied homeowners who have taken control of their energy production. Contact us today for a free consultation.
+            </Text>
+            <Button
+              as={RouterLink}
+              to="/contact"
+              size={'lg'}
+              h={'56px'}
+              px={10}
+              bg={'secondary.500'}
+              color={'white'}
+              rounded={'full'}
+              fontSize={'lg'}
+              fontWeight={'700'}
+              boxShadow={'0 8px 30px rgba(245, 166, 35, 0.3)'}
+              _hover={{
+                bg: 'secondary.600',
+                transform: 'translateY(-4px)',
+                boxShadow: '0 12px 40px rgba(245, 166, 35, 0.4)',
+              }}
+              transition={'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'}
+            >
+              Get Started Now
+            </Button>
           </Stack>
+        </Container>
+      </Box>
+
+      {/* Testimonials Section */}
+      <Box py={20} bg={useColorModeValue('white', 'gray.900')}>
+        <Container maxW={'container.xl'}>
+          <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'} mb={16}>
+            <Text
+              fontSize={'sm'}
+              fontWeight={'600'}
+              textTransform={'uppercase'}
+              letterSpacing={'0.2em'}
+              color={'secondary.500'}
+            >
+              Testimonials
+            </Text>
+            <Heading
+              fontSize={'4xl'}
+              fontWeight={'800'}
+              color={useColorModeValue('brand.500', 'white')}
+            >
+              What Our Clients Say
+            </Heading>
+          </Stack>
+
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+            <TestimonialCard
+              name="John Moyo"
+              location="Mutare"
+              text="G.MUNDIETA installed our 3kVA system last year. No more load shedding worries! Their team was professional and cleaned up after themselves."
+            />
+            <TestimonialCard
+              name="Sarah Ncube"
+              location="Christmas Rock"
+              text="Excellent service from quote to installation. The team answered all my questions about solar and the system has cut our electricity bill by 80%."
+            />
+            <TestimonialCard
+              name="Peter Dube"
+              location="Mutare CBD"
+              text="We needed backup power for our office. Fast, efficient installation and great after-sales support. Highly recommended!"
+            />
+          </SimpleGrid>
         </Container>
       </Box>
     </Box>
