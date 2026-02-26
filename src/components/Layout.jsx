@@ -18,9 +18,9 @@ const FloatingContactButton = () => {
       {/* Phone Button */}
       <Button
         as="a"
-        href="tel:+263775088760"
+        href="tel:+263781918804"
         colorScheme="brand"
-        size="lg"
+        size="md"
         rounded="full"
         boxShadow="0 4px 20px rgba(27, 58, 95, 0.4)"
         _hover={{
@@ -29,18 +29,18 @@ const FloatingContactButton = () => {
         }}
         transition="all 0.3s ease"
       >
-        <Icon as={FaPhone} w={5} h={5} />
+        <Icon as={FaPhone} w={4} h={4} />
       </Button>
 
       {/* WhatsApp Button */}
       <Button
         as="a"
-        href="https://wa.me/263775088760"
+        href="https://wa.me/263781918804"
         target="_blank"
         rel="noopener noreferrer"
         bg="#25D366"
         color="white"
-        size="lg"
+        size="md"
         rounded="full"
         boxShadow="0 4px 20px rgba(37, 211, 102, 0.4)"
         _hover={{
@@ -50,7 +50,7 @@ const FloatingContactButton = () => {
         }}
         transition="all 0.3s ease"
       >
-        <Icon as={FaWhatsapp} w={5} h={5} />
+        <Icon as={FaWhatsapp} w={4} h={4} />
       </Button>
     </Flex>
   );

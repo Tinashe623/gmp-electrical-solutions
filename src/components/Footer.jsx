@@ -186,7 +186,19 @@ const Footer = () => {
               direction={"row"}
               spacing={6}
               mt={{ base: 4, md: 0 }}
-            ></Stack>
+            >
+              <Text
+                as="a"
+                href="https://tinashe-mundieta.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                fontSize={"sm"}
+                color={"gray.500"}
+                _hover={{ color: "secondary.500" }}
+              >
+                Designed & Developed by Tinashe Mundieta
+              </Text>
+            </Stack>
           </Flex>
         </Container>
       </Box>

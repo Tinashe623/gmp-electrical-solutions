@@ -6,6 +6,7 @@ import {
   Button,
   Stack,
   useColorModeValue,
+  useColorMode,
   useBreakpointValue,
   Container,
   IconButton,
@@ -20,11 +21,12 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
   const btnRef = React.useRef();
   const location = useLocation();
   const [scrolled, setScrolled] = React.useState(false);
@@ -125,42 +127,47 @@ const Navbar = () => {
               objectFit={"contain"}
               transition={"all 0.3s ease"}
               filter={logoFilter}
+              display={{ base: "none", lg: "block" }}
               _hover={{
                 filter: "drop-shadow(0 6px 12px rgba(27, 58, 95, 0.3))",
                 transform: "scale(1.02)",
               }}
             />
+            {/* Company name - visible on mobile and tablet */}
+            <Text
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
+              fontWeight={"800"}
+              letterSpacing={"tight"}
+              color="white"
+              whiteSpace="nowrap"
+              display={{ base: "inline-block", lg: "none" }}
+            >
+              G.MUNDIETA
+              <Text
+                as="span"
+                color="secondary.400"
+              >
+                {" "}
+                Electrical
+              </Text>
+            </Text>
+            {/* Company name for desktop (shown alongside logo) */}
             <Text
               fontSize={{ base: "md", md: "lg", lg: "xl" }}
               fontWeight={"800"}
               letterSpacing={"tight"}
-              bgGradient="linear(to-r, brand.500, brand.600)"
-              bgClip="text"
+              color="white"
               whiteSpace="nowrap"
               display={{ base: "none", lg: "inline-block" }}
             >
               G.MUNDIETA
               <Text
                 as="span"
-                bgGradient="linear(to-r, secondary.500, secondary.600)"
-                bgClip="text"
-                display={{ base: "none", lg: "inline-block" }}
+                color="secondary.400"
               >
                 {" "}
                 Electrical
               </Text>
-            </Text>
-            {/* Compact logo text for tablet */}
-            <Text
-              fontSize={{ base: "md", md: "lg" }}
-              fontWeight={"800"}
-              letterSpacing={"tight"}
-              bgGradient="linear(to-r, brand.500, brand.600)"
-              bgClip="text"
-              whiteSpace="nowrap"
-              display={{ base: "none", md: "inline-block", lg: "none" }}
-            >
-              G.MUNDIETA
             </Text>
           </Flex>
 
@@ -218,6 +225,16 @@ const Navbar = () => {
             >
               Get a Quote
             </Button>
+
+            <IconButton
+              display={{ base: "none", lg: "flex" }}
+              aria-label="Toggle color mode"
+              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              onClick={toggleColorMode}
+              variant="ghost"
+              colorScheme="brand"
+              size="sm"
+            />
           </Stack>
 
           <IconButton
@@ -228,6 +245,15 @@ const Navbar = () => {
             onClick={onOpen}
             icon={<HamburgerIcon />}
             aria-label="Open Menu"
+            variant="ghost"
+            colorScheme="brand"
+          />
+
+          <IconButton
+            display={{ base: "flex", lg: "none" }}
+            aria-label="Toggle color mode"
+            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            onClick={toggleColorMode}
             variant="ghost"
             colorScheme="brand"
           />

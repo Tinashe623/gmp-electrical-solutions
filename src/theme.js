@@ -63,9 +63,11 @@ const theme = extendTheme({
         bg: props.colorMode === 'dark' ? 'gray.900' : 'gray.50',
         color: props.colorMode === 'dark' ? 'whiteAlpha.900' : 'gray.800',
         transition: 'background-color 0.2s ease',
+        overflowX: 'hidden',
       },
       html: {
         scrollBehavior: 'smooth',
+        overflowX: 'hidden',
       },
       '.scroll-vertical': {
         animation: 'scrollDot 1.5s ease-in-out infinite',

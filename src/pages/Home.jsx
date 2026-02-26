@@ -440,19 +440,24 @@ const Home = () => {
 
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
             <TestimonialCard
-              name="John Moyo"
-              location="Mutare"
+              name="Mr/Mrs Nyamunda"
+              location="Mutasa"
               text="G.MUNDIETA installed our 3kVA system last year. No more load shedding worries! Their team was professional and cleaned up after themselves."
             />
             <TestimonialCard
-              name="Sarah Ncube"
-              location="Christmas Rock"
-              text="Excellent service from quote to installation. The team answered all my questions about solar and the system has cut our electricity bill by 80%."
+              name="Mrs Josaya Mutasa"
+              location="Mutasa, zongoro"
+              text="Exelent work Fridge chava chando chega chega"
             />
             <TestimonialCard
-              name="Peter Dube"
-              location="Mutare CBD"
-              text="We needed backup power for our office. Fast, efficient installation and great after-sales support. Highly recommended!"
+              name="Mr/Mrs Kasora"
+              location="Chipinge"
+              text="Matiisira Moto muzhinhi Cephas Mashakada. Exellent 5kva offgrid system"
+            />
+            <TestimonialCard
+              name="Mrs Jongwe"
+              location="Manhede"
+              text="Maita basa shumba tava muchiedza"
             />
           </SimpleGrid>
         </Container>

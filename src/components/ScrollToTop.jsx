@@ -36,9 +36,10 @@ const ScrollToTop = () => {
   return (
     <Box
       position={'fixed'}
-      bottom={{ base: '20px', md: '30px' }}
-      right={{ base: '20px', md: '30px' }}
-      zIndex={1000}
+      bottom={{ base: '80px', md: '30px' }}
+      left={{ base: '20px', md: '30px' }}
+      right="auto"
+      zIndex={999}
       opacity={isVisible ? 1 : 0}
       transform={isVisible ? 'translateY(0)' : 'translateY(20px)'}
       transition={'all 0.3s ease'}
@@ -48,7 +49,7 @@ const ScrollToTop = () => {
         aria-label="Scroll to top"
         icon={<FaArrowUp />}
         onClick={scrollToTop}
-        size={{ base: 'md', md: 'lg' }}
+        size="sm"
         colorScheme={'brand'}
         rounded={'full'}
         boxShadow={'0 4px 20px rgba(27, 58, 95, 0.3)'}
