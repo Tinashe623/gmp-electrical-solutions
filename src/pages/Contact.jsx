@@ -1,5 +1,4 @@
 import React from "react";
-import emailjs from "@emailjs/browser";
 import {
   Box,
   Container,
@@ -16,6 +15,7 @@ import {
   Icon,
   useColorModeValue,
   useToast,
+  Link,
 } from "@chakra-ui/react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
@@ -57,47 +57,41 @@ const ContactInfo = ({ icon, title, text }) => {
 
 const Contact = () => {
   const toast = useToast();
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ----------------------------------------------------------------------------------
-    // TODO: Replace with your own EmailJS credentials.
-    // You can get these from your EmailJS account dashboard: https://dashboard.emailjs.com/
-    //
-    // 1. SERVICE_ID: The ID of the email service you want to use (e.g., 'service_abc123').
-    // 2. TEMPLATE_ID: The ID of the email template you've created (e.g., 'template_xyz456').
-    // 3. USER_ID: Your public key (e.g., 'user_1234567890').
-    // ----------------------------------------------------------------------------------
-    const serviceID = "YOUR_SERVICE_ID";
-    const templateID = "YOUR_TEMPLATE_ID";
-    const userID = "YOUR_USER_ID";
+    const { name, email, phone, service, message } = formData;
+    const mailtoLink = `mailto:mundietageorge@gmail.com?subject=New Inquiry from ${name}&body=Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0A%0AMessage:%0A${message}`;
 
-    emailjs.sendForm(serviceID, templateID, e.target, userID).then(
-      (result) => {
-        console.log(result.text);
-        toast({
-          title: "Message Sent.",
-          description:
-            "We've received your request and will get back to you shortly.",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
-      },
-      (error) => {
-        console.log(error.text);
-        toast({
-          title: "An error occurred.",
-          description: "Please try again later.",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-      },
-    );
+    window.location.href = mailtoLink;
 
-    e.target.reset();
+    toast({
+      title: "Opening email client...",
+      description: "Please send the email to complete your inquiry.",
+      status: "info",
+      duration: 5000,
+      isClosable: true,
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: "",
+    });
   };
 
   return (
@@ -177,7 +171,9 @@ const Contact = () => {
                   <FormLabel fontWeight={"600"}>Name</FormLabel>
                   <Input
                     type="text"
-                    name="from_name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your Name"
                     focusBorderColor="brand.500"
                     _focus={{
@@ -189,7 +185,9 @@ const Contact = () => {
                   <FormLabel fontWeight={"600"}>Email</FormLabel>
                   <Input
                     type="email"
-                    name="from_email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="your@email.com"
                     focusBorderColor="brand.500"
                     _focus={{
@@ -201,7 +199,9 @@ const Contact = () => {
                   <FormLabel fontWeight={"600"}>Phone</FormLabel>
                   <Input
                     type="tel"
-                    name="from_phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="e.g. +263 00 000 0000"
                     focusBorderColor="brand.500"
                     _focus={{
@@ -213,7 +213,9 @@ const Contact = () => {
                   <FormLabel fontWeight={"600"}>Interested Service</FormLabel>
                   <Input
                     type="text"
-                    name="from_service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
                     placeholder="e.g. Solar Installation"
                     focusBorderColor="brand.500"
                     _focus={{
@@ -225,6 +227,8 @@ const Contact = () => {
                   <FormLabel fontWeight={"600"}>Message</FormLabel>
                   <Textarea
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Tell us about your project..."
                     rows={6}
                     focusBorderColor="brand.500"
