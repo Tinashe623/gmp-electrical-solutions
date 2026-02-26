@@ -73,9 +73,12 @@ const Contact = () => {
     e.preventDefault();
 
     const { name, email, phone, service, message } = formData;
-    const mailtoLink = `mailto:mundietageorge@gmail.com?subject=New Inquiry from ${name}&body=Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0A%0AMessage:%0A${message}`;
+    const subject = encodeURIComponent(`New Inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\n\nMessage:\n${message}`
+    );
 
-    window.location.href = mailtoLink;
+    window.open(`mailto:mundietageorge@gmail.com?subject=${subject}&body=${body}`, '_blank');
 
     toast({
       title: "Opening email client...",
