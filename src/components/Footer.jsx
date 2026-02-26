@@ -136,12 +136,6 @@ const Footer = () => {
             >
               Contact Us
             </Text>
-            <Text fontWeight="600" color="white">
-              Head Office
-            </Text>
-            <Text>St Jamses Zongoro</Text>
-            <Text mb={2}>313 Mutare</Text>
-
             <Text fontWeight="600" color="white" mt={2}>
               Get in Touch
             </Text>

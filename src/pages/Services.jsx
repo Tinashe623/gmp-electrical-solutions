@@ -419,7 +419,7 @@ const Services = () => {
                   pb={6}
                 >
                   <Text color={useColorModeValue("gray.600", "whiteAlpha.800")} pt={4}>
-                    Yes, we offer free, no-obligation quotes for all our services. Simply contact us through the form on our website, call us, or visit our office. We'll assess your needs and provide a detailed quote tailored to your requirements.
+                    Yes, we offer free, no-obligation quotes for all our services. Simply contact us through the form on our website or call us. We'll assess your needs and provide a detailed quote tailored to your requirements.
                   </Text>
                 </AccordionPanel>
               </AccordionItem>
