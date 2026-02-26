@@ -5,7 +5,6 @@ import {
   Stack,
   Text,
   SimpleGrid,
-  useColorModeValue,
   Icon,
   Flex,
   useToast,
@@ -183,8 +182,11 @@ const Footer = () => {
               © {new Date().getFullYear()} G.MUNDIETA Electrical. All rights
               reserved.
             </Text>
-            <Stack direction={"row"} spacing={6} mt={{ base: 4, md: 0 }}>
-            </Stack>
+            <Stack
+              direction={"row"}
+              spacing={6}
+              mt={{ base: 4, md: 0 }}
+            ></Stack>
           </Flex>
         </Container>
       </Box>
