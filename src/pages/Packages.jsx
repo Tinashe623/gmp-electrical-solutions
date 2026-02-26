@@ -229,7 +229,7 @@ const Packages = () => {
         'Wi‑Fi router and computers',
         'Borehole Pump',
         'Washing Machine',
-'Printers and other appliances'
+        'Printers and other appliances'
       ],
       isPopular: false,
       image: img3kva,
@@ -266,11 +266,11 @@ const Packages = () => {
         '8 x 450W solar panels',
         '5.5kW hybrid inverter',
         '1 x 48v 200ah Lithium iron Battery',
-         'Mounting kits',
-         'Accessories',
-         'Automatic ChangeOver Switch',
-         'Labour | Installation',
-          '12 months warranty',
+        'Mounting kits',
+        'Accessories',
+        'Automatic ChangeOver Switch',
+        'Labour | Installation',
+        '12 months warranty',
       ],
       powers: [
         'Small office or shop (computers, POS, lighting)',
@@ -292,16 +292,16 @@ const Packages = () => {
         '10kW hybrid inverter',
         'Enterprise monitoring',
         '2 x 48v 100ah Lithium Ion Battery',
-'Mounting kit',
+        'Mounting kit',
         'Protection kit',
         'Adjustable Voltage Switcher',
-'Labour | Installation',
+        'Labour | Installation',
         '5 years warranty'
       ],
       powers: [
         'Lights',
         'TV',
-'Decoder',
+        'Decoder',
         'Microwave',
         'Wi‑Fi',
         'Charging',
@@ -353,7 +353,7 @@ const Packages = () => {
 
       {/* Packages Grid */}
       <Container maxW={'container.xl'} py={20}>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+        <SimpleGrid minChildWidth={{ base: '100%', md: '300px', lg: '350px' }} spacing={8}>
           {packages.map((pkg, index) => (
             <PackageCard key={index} {...pkg} />
           ))}

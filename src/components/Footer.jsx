@@ -8,8 +8,9 @@ import {
   Icon,
   Flex,
   useToast,
+  Button,
 } from "@chakra-ui/react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => {
@@ -38,11 +39,11 @@ const Footer = () => {
       <Container
         as={Stack}
         maxW={"container.xl"}
-        py={16}
+        py={12}
         position={"relative"}
         zIndex={1}
       >
-        <SimpleGrid columns={{ base: 1, md: 4 }} spacing={12}>
+        <SimpleGrid columns={{ base: 1, md: 4 }} spacing={8} align="start">
           {/* Brand Column */}
           <Stack spacing={6}>
             <Box>
@@ -173,6 +174,27 @@ const Footer = () => {
         bg={"blackAlpha.300"}
       >
         <Container maxW={"container.xl"}>
+          {/* WhatsApp Button */}
+          <Flex justify="center" mb={4}>
+            <Button
+              as="a"
+              href="https://wa.me/263781918804"
+              target="_blank"
+              rel="noopener noreferrer"
+              bg="#25D366"
+              color="white"
+              size="lg"
+              rounded="full"
+              leftIcon={<Box as={FaWhatsapp} w={5} h={5} />}
+              _hover={{
+                bg: '#20BD5A',
+                transform: 'scale(1.05)',
+              }}
+              transition="all 0.3s ease"
+            >
+              Chat on WhatsApp
+            </Button>
+          </Flex>
           <Flex
             direction={{ base: "column", md: "row" }}
             justify="space-between"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, SimpleGrid, Icon, Text, Stack, Flex, Heading, Container, Button, useColorModeValue } from '@chakra-ui/react';
-import { FaSolarPanel, FaBolt, FaTools, FaShieldAlt, FaCertificate, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaSolarPanel, FaBolt, FaTools } from 'react-icons/fa';
 import Hero from '../components/Hero';
 import { Link as RouterLink } from 'react-router-dom';
 import solar2 from '../assets/images/solar2.jpg';
@@ -145,62 +145,6 @@ const Home = () => {
           />
         </SimpleGrid>
       </Container>
-
-      {/* Trust badges */}
-      <Box py={10} bg={useColorModeValue('white', 'gray.900')}>
-        <Container maxW={'container.xl'}>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
-            <Flex align="center" gap={3}>
-              <Box
-                as={FaShieldAlt}
-                w={8}
-                h={8}
-                color="brand.500"
-              />
-              <Box>
-                <Text fontWeight="700" fontSize="sm" color={useColorModeValue('gray.800', 'whiteAlpha.900')}>
-                  Licensed & Insured
-                </Text>
-                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
-                  Compliant installations and safe workmanship on every job.
-                </Text>
-              </Box>
-            </Flex>
-            <Flex align="center" gap={3}>
-              <Box
-                as={FaCertificate}
-                w={8}
-                h={8}
-                color="secondary.500"
-              />
-              <Box>
-                <Text fontWeight="700" fontSize="sm" color={useColorModeValue('gray.800', 'whiteAlpha.900')}>
-                  Certified Solar Installers
-                </Text>
-                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
-                  Trained to design and commission reliable solar systems.
-                </Text>
-              </Box>
-            </Flex>
-            <Flex align="center" gap={3}>
-              <Box
-                as={FaMapMarkerAlt}
-                w={8}
-                h={8}
-                color="accent.500"
-              />
-              <Box>
-                <Text fontWeight="700" fontSize="sm" color={useColorModeValue('gray.800', 'whiteAlpha.900')}>
-                  Local to Mutare
-                </Text>
-                <Text fontSize="sm" color={useColorModeValue('gray.600', 'whiteAlpha.700')}>
-                  Fast support for homes and businesses in Mutare & surrounds.
-                </Text>
-              </Box>
-            </Flex>
-          </SimpleGrid>
-        </Container>
-      </Box>
 
       {/* Recent installations */}
       <Box py={16} bg={useColorModeValue('gray.50', 'gray.900')}>
@@ -438,7 +382,7 @@ const Home = () => {
             </Heading>
           </Stack>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
             <TestimonialCard
               name="Mr/Mrs Nyamunda"
               location="Mutasa"

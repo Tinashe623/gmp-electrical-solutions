@@ -138,14 +138,14 @@ const Navbar = () => {
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
               fontWeight={"800"}
               letterSpacing={"tight"}
-              color="white"
+              color={useColorModeValue("brand.500", "white")}
               whiteSpace="nowrap"
               display={{ base: "inline-block", lg: "none" }}
             >
               G.MUNDIETA
               <Text
                 as="span"
-                color="secondary.400"
+                color={useColorModeValue("secondary.500", "secondary.400")}
               >
                 {" "}
                 Electrical
@@ -156,14 +156,14 @@ const Navbar = () => {
               fontSize={{ base: "md", md: "lg", lg: "xl" }}
               fontWeight={"800"}
               letterSpacing={"tight"}
-              color="white"
+              color={useColorModeValue("brand.500", "white")}
               whiteSpace="nowrap"
               display={{ base: "none", lg: "inline-block" }}
             >
               G.MUNDIETA
               <Text
                 as="span"
-                color="secondary.400"
+                color={useColorModeValue("secondary.500", "secondary.400")}
               >
                 {" "}
                 Electrical

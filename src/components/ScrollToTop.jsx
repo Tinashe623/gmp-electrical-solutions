@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(false);
+  const [isNearFooter, setIsNearFooter] = useState(false);
 
   // Scroll to top when route changes
   useEffect(() => {
@@ -20,10 +21,26 @@ const ScrollToTop = () => {
       } else {
         setIsVisible(false);
       }
+
+      // Check if near footer to hide the button on mobile
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight;
+      const footerThreshold = documentHeight - 200; // 200px before footer
+
+      if (scrollPosition > footerThreshold) {
+        setIsNearFooter(true);
+      } else {
+        setIsNearFooter(false);
+      }
     };
 
     window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('resize', toggleVisibility);
+    toggleVisibility(); // Check on mount
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener('resize', toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -33,17 +50,20 @@ const ScrollToTop = () => {
     });
   };
 
+  // Don't render on mobile when near footer
+  const shouldHide = isNearFooter;
+
   return (
     <Box
       position={'fixed'}
-      bottom={{ base: '80px', md: '30px' }}
+      bottom={{ base: shouldHide ? '-100px' : '80px', md: '30px' }}
       left={{ base: '20px', md: '30px' }}
       right="auto"
       zIndex={999}
-      opacity={isVisible ? 1 : 0}
-      transform={isVisible ? 'translateY(0)' : 'translateY(20px)'}
+      opacity={isVisible && !shouldHide ? 1 : 0}
+      transform={isVisible && !shouldHide ? 'translateY(0)' : 'translateY(20px)'}
       transition={'all 0.3s ease'}
-      pointerEvents={isVisible ? 'auto' : 'none'}
+      pointerEvents={isVisible && !shouldHide ? 'auto' : 'none'}
     >
       <IconButton
         aria-label="Scroll to top"
