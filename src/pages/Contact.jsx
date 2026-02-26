@@ -81,9 +81,9 @@ const Contact = () => {
     window.open(`mailto:mundietageorge@gmail.com?subject=${subject}&body=${body}`, '_blank');
 
     toast({
-      title: "Opening email client...",
-      description: "Please send the email to complete your inquiry.",
-      status: "info",
+      title: "Message Ready!",
+      description: "Your email client is opening. Please send the email to complete your inquiry.",
+      status: "success",
       duration: 5000,
       isClosable: true,
     });
