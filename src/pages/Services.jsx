@@ -145,13 +145,13 @@ const Services = () => {
       <Stack spacing={8} pt={10} pb={0}>
         <ServiceSection
           title="Solar Panel Installation"
-          description="Maximize your energy independence with our premium solar installation services. We handle everything from site assessment and design to installation and maintenance, ensuring you get the most efficient system for your property."
+          description="Transform your home with clean, renewable energy. Our expert team designs and installs custom solar systems tailored to your energy needs, helping you save up to 80% on electricity bills while enjoying uninterrupted power during load shedding."
           features={[
-            "Custom solar system design",
-            "High-efficiency tier-1 solar panels",
-            "Battery storage integration",
-            "Grid-tied and off-grid solutions",
-            "25-year performance warranty",
+            "Custom system design by certified engineers",
+            "High-efficiency Tier-1 solar panels",
+            "Battery backup integration for 24/7 power",
+            "Professional installation with safety guarantees",
+            "25-year panel warranty + 5-year inverter warranty",
           ]}
           imageSrc={solarRoof}
         />
@@ -160,27 +160,27 @@ const Services = () => {
           <ServiceSection
             reversed
             title="Electrical Tubing & Conduit"
-            description="Protect your wiring with professional tubing solutions. We install rigid and flexible conduits that safeguard your electrical systems against environmental damage, pests, and wear, ensuring code compliance and longevity."
+            description="Protect your electrical investments with professional conduit solutions. We install neat, code-compliant tubing that safeguards your wiring, enhances property value, and meets all local safety standards."
             features={[
               "EMT, IMC, and Rigid conduit installation",
               "PVC and flexible liquid-tight tubing",
-              "Surface and concealed mounting",
-              "Industrial and residential applications",
-              "Code-compliant wire protection",
+              "Clean surface and concealed mounting",
+              "Industrial & residential applications",
+              "Full safety compliance certification",
             ]}
             imageSrc={wiring1}
           />
         </Box>
 
         <ServiceSection
-          title="Home Wiring & Electrical Work"
-          description="Ensure your home is powered safely and efficiently. Our certified electricians handle all aspects of residential wiring, from new construction and full house rewiring to panel upgrades and outlet installations."
+          title="Home & Business Electrical Wiring"
+          description="Safe, reliable electrical installations from licensed professionals. Whether it's a new build, renovation, or upgrade, we deliver quality workmanship that keeps your property powered safely for years to come."
           features={[
-            "Full home rewiring",
-            "Electrical panel upgrades",
-            "Lighting design and installation",
-            "Smart home wiring",
-            "Electrical safety inspections",
+            "Complete home & office wiring",
+            "Electrical panel upgrades & replacements",
+            "Professional lighting design & installation",
+            "Safety inspections & certificate issuance",
+            "Prompt repairs & emergency services",
           ]}
           imageSrc={wiring2}
         />
@@ -188,13 +188,13 @@ const Services = () => {
         <Box bg={useColorModeValue("gray.50", "gray.900")}>
           <ServiceSection
             title="Solar Maintenance & Monitoring"
-            description="Keep your system performing at its best. We offer scheduled maintenance, cleaning, and performance checks so you get the savings you expect from your solar investment."
+            description="Protect your solar investment with regular maintenance. Our monitoring services ensure peak performance, maximize your savings, and extend the lifespan of your system."
             features={[
-              "Annual system health checks",
-              "Panel cleaning and visual inspections",
-              "Inverter and battery performance checks",
-              "Fault finding and repairs",
-              "Monitoring setup and support",
+              "Annual system health checkups",
+              "Professional panel cleaning & inspection",
+              "Inverter & battery performance testing",
+              "Remote monitoring setup & support",
+              "Priority repair services",
             ]}
             imageSrc={wiring3}
           />
